@@ -3,7 +3,7 @@
 $db_host = 'localhost';
 $db_user = 'username';
 $db_pass = 'password';
-$db_name = 'database_name';
+$db_name = 'cars';
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 

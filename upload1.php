@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "image_database";
+$dbname = "cars";
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);

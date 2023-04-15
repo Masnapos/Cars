@@ -71,7 +71,7 @@
         <div class="modal-content">
             <span class="close" onclick="closeRegisterModal()">&times;</span>
             <h2>Register</h2>
-            <form>
+            <form action="login.php" method="post" id="loginForm">
                 <label for="reg-username">Username:</label>
                 <input type="text" name="reg-username" id="reg-username">
                 <label for="reg-email">Email:</label>
@@ -87,44 +87,45 @@
     </div>
 	<script>
 		const sideNav = document.getElementById('sideNav');
-		const hamburger = document.getElementById('hamburger');
-	
-		hamburger.addEventListener('click', () => {
-			sideNav.classList.toggle('open');
-		});
-	
-		document.addEventListener('click', (e) => {
-			if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
-				sideNav.classList.remove('open');
-			}
-		});
-	
-		function showLoginModal() {
+const hamburger = document.getElementById('hamburger');
+
+hamburger.addEventListener('click', () => {
+    sideNav.classList.toggle('open');
+});
+
+document.addEventListener('click', (e) => {
+    if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+        sideNav.classList.remove('open');
+    }
+});
+
+function showLoginModal() {
     document.getElementById('loginModal').style.display = 'block';
 }
-	
-		function closeLoginModal() {
-			document.getElementById('loginModal').style.display = 'none';
-		}
-	
-		function showRegisterModal() {
-			document.getElementById('registerModal').style.display = 'block';
-		}
-	
-		function closeRegisterModal() {
-			document.getElementById('registerModal').style.display = 'none';
-		}
-	
-		function showRegisterModal() {
-			closeLoginModal();
-			const registerModal = document.getElementById('registerModal');
-			registerModal.style.display = 'block';
-		}
-		window.onclick = function (event) {
-			if (event.target.classList.contains('modal')) {
-				event.target.style.display = 'none';
-			}
-		};	
+
+function closeLoginModal() {
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function showRegisterModal() {
+    document.getElementById('registerModal').style.display = 'block';
+}
+
+function closeRegisterModal() {
+    document.getElementById('registerModal').style.display = 'none';
+}
+
+function showRegisterModal() {
+    closeLoginModal();
+    const registerModal = document.getElementById('registerModal');
+    registerModal.style.display = 'block';
+}
+window.onclick = function (event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+};
+
 		
 	</script>
 </body>

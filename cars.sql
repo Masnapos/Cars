@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 15. 18:24
+-- Létrehozás ideje: 2023. Ápr 15. 19:08
 -- Kiszolgáló verziója: 10.4.25-MariaDB
 -- PHP verzió: 7.4.30
 
@@ -35,18 +35,8 @@ CREATE TABLE `cars` (
   `p_date` date NOT NULL,
   `mileage` int(11) NOT NULL,
   `text` text COLLATE utf8_hungarian_ci NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
-
--- --------------------------------------------------------
-
---
--- Tábla szerkezet ehhez a táblához `images`
---
-
-CREATE TABLE `images` (
-  `car_id` int(11) NOT NULL,
-  `image` varchar(600) COLLATE utf8_hungarian_ci NOT NULL
+  `user_id` int(11) NOT NULL,
+  `price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
@@ -59,12 +49,6 @@ CREATE TABLE `images` (
 ALTER TABLE `cars`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_id` (`user_id`);
-
---
--- A tábla indexei `images`
---
-ALTER TABLE `images`
-  ADD KEY `car_id` (`car_id`);
 
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
@@ -85,12 +69,6 @@ ALTER TABLE `cars`
 --
 ALTER TABLE `cars`
   ADD CONSTRAINT `cars_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Megkötések a táblához `images`
---
-ALTER TABLE `images`
-  ADD CONSTRAINT `images_ibfk_1` FOREIGN KEY (`car_id`) REFERENCES `cars` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

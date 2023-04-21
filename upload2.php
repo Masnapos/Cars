@@ -49,7 +49,7 @@ if ($conn->connect_error) {
                         $messages[] = " Already exist: " . $file['name'];
                     else {
                         move_uploaded_file($file['tmp_name'], $target_dir);
-                       // echo $file['tmp_name'];
+                        
                         $messages[] = ' Ok: ' . $file['name'];
                         $sql = "INSERT INTO cars (brand, model, displacement, p_date, mileage, text, price, image ) VALUES (?, ?, ?,?,?,?,?,?)";
                                 $stmt = $conn->prepare($sql);

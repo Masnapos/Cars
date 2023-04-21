@@ -55,7 +55,7 @@ if ($conn->connect_error) {
                                 $stmt = $conn->prepare($sql);
                             if ($stmt) {
                                 // Bind the parameters and execute the query
-                                $stmt->bind_param("ssiiisis", $brand, $model, $displacement, $p_date, $mileage, $text, $price, $file['tmp_name']);
+                                $stmt->bind_param("ssiiisis", $brand, $model, $displacement, $p_date, $mileage, $text, $price, $file['name']);
                             
                                 if ($stmt->execute()) {
                                     echo "Image uploaded successfully.";
@@ -85,13 +85,13 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM images";
 $result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
+/*if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo '<img src="data:image/jpeg;base64,' . base64_encode($row['image']) . '"/>';
     }
 } else {
     echo "No images found.";
-}
+}*/
 
 // Close the database connection
 $conn->close();

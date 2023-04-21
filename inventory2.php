@@ -64,7 +64,7 @@
         <?php foreach ($result as $row)
 print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td></tr>";
         ?>
-        <img src="$row['image']">
+        <img src="img/<?php echo$row['image']; ?>">
           
         <!-- Add more rows as needed -->
       </tbody>

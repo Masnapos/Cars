@@ -39,7 +39,7 @@
     </form>
     <?php
 	try {
-		// Connecting
+		// Connecting   
 		$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 		$pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
 		$statement = "Select brand, model, p_date, price, image From cars";
@@ -62,9 +62,10 @@
       </thead>
       <tbody>
         <?php foreach ($result as $row)
-print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td></tr>";
+       
+print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='$row[image]' style='width:10%'>"; "</td></tr>";
         ?>
-        <img src="img/<?php echo$row['image']; ?>">
+     
           
         <!-- Add more rows as needed -->
       </tbody>

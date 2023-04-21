@@ -4,6 +4,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "cars";
+$FOLDER ='./img/';
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -44,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Sorry, your file was not uploaded.";
     } else {
        
+       
         $brand = $_POST['brand'];
         $model = $_POST['model'];
         $displacement = $_POST['displacement'];
@@ -56,9 +58,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Prepare the SQL query
         $sql = "INSERT INTO cars (brand, model, displacement, p_date, mileage, text, price, image ) VALUES (?, ?, ?,?,?,?,?,?)";
-       
+       $filename = $_FILES["image"]["name"];
         $stmt = $conn->prepare($sql);
-
+        $target_dir = $FOLDER.strtolower($filename);
+        if (file_exists($target_dir))
+        $messages[] = " Already exist: " . $file['name'];
+    
+    
+        
+       
+    
+            
         if ($stmt) {
             // Bind the parameters and execute the query
             $stmt->bind_param("ssiiisis", $brand, $model, $displacement, $p_date, $mileage, $text, $price, $image_data);

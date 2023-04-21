@@ -44,6 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Sorry, your file was not uploaded.";
     } else {
         $car_id = $_POST['car_id'];
+        $brand = $_POST['brand']
+        $model = $_POST['model']
+        $p_date = $_POST['p_date']
+        $mileage = $_POST['mileage']
+        $price = $_POST['price']
+        $text = $_POST['text']
+
         $image_data = file_get_contents($_FILES["image"]["tmp_name"]);
 
         // Prepare the SQL query

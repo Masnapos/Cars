@@ -23,11 +23,21 @@
     </header>
     <main>
         <form action="upload1.php" method="post" enctype="multipart/form-data">
-            <label for="car_id">Car ID:</label>
-            <input type="text" name="car_id" id="car_id"><br><br>
+            <label for="brand">Brand: </label>
+            <input type="text" name="brand" id="brand"><br>
+            <label for="model">Model: </label>
+            <input type="text" name="model" id="model"><br>
+            <label for="p_date">Production date: </label>
+            <input type="text" name="p_date" id="p_date"><br>
+            <label for="mileage">Mileage: </label>
+            <input type="text" name="mileage" id="mileage"><br>
+            <label for="price">Price: </label>
+            <input type="text" name="price" id="price"><br>
+            <label for="text">More: </label>
+            <textarea name="text" id="text" rows="10" cols="30"></textarea>
             <label for="image">Choose Image:</label>
             <input type="file" name="image" id="image"><br><br>
-            <input type="submit" value="Upload Image">
+            <input type="submit" value="Upload">
         </form>
         
 

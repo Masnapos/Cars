@@ -43,23 +43,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($uploadOk == 0) {
         echo "Sorry, your file was not uploaded.";
     } else {
-        $car_id = $_POST['car_id'];
-        $brand = $_POST['brand']
-        $model = $_POST['model']
-        $p_date = $_POST['p_date']
-        $mileage = $_POST['mileage']
-        $price = $_POST['price']
-        $text = $_POST['text']
+       
+        $brand = $_POST['brand'];
+        $model = $_POST['model'];
+        $displacement = $_POST['displacement'];
+        $p_date = $_POST['p_date'];
+        $mileage = $_POST['mileage'];
+        $price = $_POST['price'];
+        $text = $_POST['text'];
 
         $image_data = file_get_contents($_FILES["image"]["tmp_name"]);
 
         // Prepare the SQL query
-        $sql = "INSERT INTO images (car_id, image) VALUES (?, ?)";
+        $sql = "INSERT INTO cars (brand, model, displacement, p_date, mileage, text, price, image ) VALUES (?, ?, ?,?,?,?,?,?)";
+       
         $stmt = $conn->prepare($sql);
 
         if ($stmt) {
             // Bind the parameters and execute the query
-            $stmt->bind_param("is", $car_id, $image_data);
+            $stmt->bind_param("ssiiisis", $brand, $model, $displacement, $p_date, $mileage, $text, $price, $image_data);
+           
             if ($stmt->execute()) {
                 echo "Image uploaded successfully.";
             } else {

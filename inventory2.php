@@ -42,7 +42,7 @@
 		// Connecting
 		$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 		$pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
-		$statement = "Select brand, model, p_date, price From cars";
+		$statement = "Select brand, model, p_date, price, image From cars";
 		$result = $pdo->query($statement);
 	}
 	catch (PDOException $e) {
@@ -62,8 +62,9 @@
       </thead>
       <tbody>
         <?php foreach ($result as $row)
-print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " <td>" .$row['p_date'] ." <td>" .$row['price'] ."</td></tr>";
+print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td></tr>";
         ?>
+        <img src="$row['image']">
           
         <!-- Add more rows as needed -->
       </tbody>

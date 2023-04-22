@@ -22,20 +22,22 @@
         <li><a href="#" onclick="showLoginModal()">Login</a></li>
       </ul>
     </div>
-    <form onsubmit="event.preventDefault(); searchItems();">
+    <form method="post" action="">
       <label for="search">Search:</label>
       
       <input type="text" id="search" name="search">
-      <label for="">Brand:</label>
-      <input type="text" id="search" name="brand">
-      <label for="model">Model:</label>
-      <input type="text" id="search" name="model">
-      <label for="model">Model:</label>
-      <input type="text" id="search" name="model">
-      <label for="model">Model:</label>
-      <input type="text" id="search" name="model">
+      <label for="">Brand: </label>
+      <input type="text" id="brand" name="brand">
+      <label for="model">Model: </label>
+      <input type="text" id="model" name="model">
+      <label for="p_date">Production date: </label>
+      <input type="text" id="p_date" name="p_date">
+      <label for="price">Price: </label>
+      <input type="text" id="min_price" name="min_price">
+      <label for=""> - </label>
+      <input type="text" id="max_price" name="max_price">
 
-      <button type="submit">Go</button>
+      <button type="submit" id="submit" name="submit">Go</button>
     </form>
     <?php
 	try {
@@ -63,9 +65,13 @@
       <tbody>
         <?php foreach ($result as $row)
        
-print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='$row[image]' style='width:10%'>"; "</td></tr>";
+print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='img/$row[image]' style='width:10%'>"; "</td></tr>";
         ?>
-     
+      <?php foreach ($result as $row)
+       
+       print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='img/$row[image]' style='width:10%'>"; "</td></tr>";
+               ?>
+            
           
         <!-- Add more rows as needed -->
       </tbody>
@@ -166,8 +172,35 @@ function closeLoginModal() {
   }
   
 
-      function searchItems() {
-  const input = document.getElementById("search");
+      
+       
+  if (isset($_POST['submit'])){
+  // get search bar inputs
+  $search1 = $_POST["brand"];
+  $search2 = $_POST["model"];
+  $search3 = $_POST["p_date"];
+  $search4 = $_POST["min_price"];
+  $search5 = $_POST["max_price"];
+  $pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+		$pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
+		
+	
+  // build SQL query
+  $sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' AND model LIKE '%$search2%' and p_date = $search3 ";
+
+  // execute query and get results
+  $result = $conn->query($sql);
+
+  // display results in a table
+  echo "<table>";
+  while($row = $result->fetch_assoc()) {
+    print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='img/$row[image]' style='width:10%'>"; "</td></tr>";
+  }
+  echo "</table>";    
+}
+      
+/*function searchItems() {and price between $search4 and $search5
+  const input = document.getElementById("model");
   const filter = input.value.toUpperCase();
   const table = document.getElementsByTagName("table")[0];
   const tr = table.getElementsByTagName("tr");
@@ -225,7 +258,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     modalImage.src = images[currentIndex];
   };
-});
+});*/
 
 
     </script>

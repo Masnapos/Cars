@@ -40,10 +40,26 @@ modal.addEventListener("click", function (event) {
 });
 
 
-const searchInput = document.getElementById("search");
+const searchInput = document.getElementById("brand");
 const rows = document.querySelectorAll("tbody tr");
 
 searchInput.addEventListener("keyup", function (event) {
+  const searchTerm = event.target.value.toLowerCase();
+  rows.forEach(row => {
+    const make = row.childNodes[1].textContent.toLowerCase();
+    const model = row.childNodes[3].textContent.toLowerCase();
+    const year = row.childNodes[5].textContent.toLowerCase();
+    const price = row.childNodes[7].textContent.toLowerCase();
+    if (make.includes(searchTerm) || model.includes(searchTerm) || year.includes(searchTerm) || price.includes(searchTerm)) {
+      row.style.display = "";
+    } else {
+      row.style.display = "none";
+    }
+  });
+});const searchInput1 = document.getElementById("model");
+
+
+searchInput1.addEventListener("keyup", function (event) {
   const searchTerm = event.target.value.toLowerCase();
   rows.forEach(row => {
     const make = row.childNodes[1].textContent.toLowerCase();

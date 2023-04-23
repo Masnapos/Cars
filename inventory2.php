@@ -23,9 +23,7 @@
       </ul>
     </div>
     <form method="post" action="">
-      <label for="search">Search:</label>
       
-      <input type="text" id="search" name="search">
       <label for="">Brand: </label>
       <input type="text" id="brand" name="brand">
       <label for="model">Model: </label>
@@ -40,16 +38,17 @@
       <button type="submit" id="submit" name="submit">Go</button>
     </form>
     <?php
-	try {
-		// Connecting   
-		$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-		$pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
-		$statement = "Select brand, model, p_date, price, image From cars";
-		$result = $pdo->query($statement);
-	}
-	catch (PDOException $e) {
-		echo "Error: ".$e->getMessage();
-	}      
+    try {
+
+	$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', 
+  '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+  $pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
+  $statement = "Select brand, model, p_date, price, image From cars";
+  $result = $pdo->query($statement);
+  }
+  catch (PDOException $e) {
+  echo "Error: ".$e->getMessage();
+  } 
 ?>
 
     <table>
@@ -63,16 +62,14 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach ($result as $row)
+
+ <?php foreach ($result as $row){
        
 print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='img/$row[image]' style='width:10%'>"; "</td></tr>";
-        ?>
-      <?php foreach ($result as $row)
-       
-       print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='img/$row[image]' style='width:10%'>"; "</td></tr>";
-               ?>
-            
-          
+     }  ?>
+     
+      
+         
         <!-- Add more rows as needed -->
       </tbody>
     </table>
@@ -80,21 +77,23 @@ print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."
     <div id="loginModal" class="login-modal hidden">
       <div class="login-modal-content">
         <div class="login-register-container"> 
-          <form id="loginForm">
+          <form id="loginForm" action="login1.php">
             <h2>Login</h2>
-            <label for="loginEmail">Email:</label>
-            <input type="email" id="loginEmail" name="loginEmail" required>
-            <label for="loginPassword">Password:</label>
-            <input type="password" id="loginPassword" name="loginPassword" required>
+            <label for="nev">Email:</label>
+            <input type="text" id="nev" name="nev" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
             <p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a></p>
           </form>
-          <form id="registerForm" style="display:none;">
+          <form id="registerForm" style="display:none;" action="register.php">
             <h2>Register</h2>
-            <label for="registerEmail">Email:</label>
-            <input type="email" id="registerEmail" name="registerEmail" required>
-            <label for="registerPassword">Password:</label>
-            <input type="password" id="registerPassword" name="registerPassword" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="nev">Username:</label>
+            <input type="text" id="nev" name="nev" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
             <button type="submit">Register</button>
             <p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p>
           </form>
@@ -174,30 +173,7 @@ function closeLoginModal() {
 
       
        
-  if (isset($_POST['submit'])){
-  // get search bar inputs
-  $search1 = $_POST["brand"];
-  $search2 = $_POST["model"];
-  $search3 = $_POST["p_date"];
-  $search4 = $_POST["min_price"];
-  $search5 = $_POST["max_price"];
-  $pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-		$pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
-		
-	
-  // build SQL query
-  $sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' AND model LIKE '%$search2%' and p_date = $search3 ";
-
-  // execute query and get results
-  $result = $conn->query($sql);
-
-  // display results in a table
-  echo "<table>";
-  while($row = $result->fetch_assoc()) {
-    print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='img/$row[image]' style='width:10%'>"; "</td></tr>";
-  }
-  echo "</table>";    
-}
+ 
       
 /*function searchItems() {and price between $search4 and $search5
   const input = document.getElementById("model");

@@ -1,38 +1,55 @@
 <?php
-// Replace with your own database connection details
-$db_host = 'localhost';
-$db_user = 'root';
-$db_pass = '';
-$db_name = 'cars';
 
-$conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+ if(isset($_POST['nev']) && isset($_POST['password']) && isset($_POST['email']) ) {
+ try {
+ 
 
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+ $dbh = new PDO('mysql:host=localhost;dbname=cars', 'root', '', 
+array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+ $dbh->query('SET NAMES utf8 COLLATE utf8_general_ci');
+ 
+ 
+ $sqlSelect = "select id from users where nev = :nev";
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$confirm_password = $_POST['confirm_password'];
+ $sth = $dbh->prepare($sqlSelect);
 
-if ($password === $confirm_password) {
-    $sql = "INSERT INTO users
-    (username, password) VALUES (?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('ss', $username, $password);
-    $result = $stmt->execute();
+ $sth->execute(array(':nev' => $_POST['nev']));
 
-    if ($result) {
-        echo "Registration successful!";
-        // Redirect to your desired page or set session variables
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+ if($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+ $message = "The username already exists!";
+ $again = "true";
+ }
 
-    $stmt->close();
-} else {
-    echo "Passwords do not match!";
-}
+ else {
 
-$conn->close();
+
+ $sqlInsert = "insert into users(id, nev, email, password)
+ values(0, :nev, :email,  :password)";
+ $stmt = $dbh->prepare($sqlInsert); 
+
+ $stmt->execute(array(':nev' => $_POST['nev'], ':email' => $_POST['email'],
+  ':password' => sha1($_POST['password']))); 
+
+
+
+
+
+ if($count = $stmt->rowCount()) {
+
+
+ $newid = $dbh->lastInsertId();
+ $message = "Your registration was successful.<br>ID: {$newid}"; 
+ $again = false;
+ }
+ else {
+ $message = "Your registration wasn't successful.";
+ $again = true;
+ }
+ 
+ }
+ catch (PDOException $e) {
+ echo "Error: ".$e->getMessage();
+ } 
+ }
+ }
 ?>

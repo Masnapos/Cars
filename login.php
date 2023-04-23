@@ -15,10 +15,10 @@ if ($conn->connect_error) {
 
 if (isset($_POST['login'])) {
     // Login logic
-    $username = $_POST['username'];
+    $username = $_POST['nev'];
     $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE username = ? AND password = ?";
+    $sql = "SELECT * FROM users WHERE nev = ? AND password = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ss', $username, $password);
     $stmt->execute();
@@ -34,11 +34,11 @@ if (isset($_POST['login'])) {
 
 } elseif (isset($_POST['register'])) {
     // Registration logic
-    $username = $_POST['username'];
+    $username = $_POST['nev'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    $sql = "INSERT INTO users (username, email, password) VALUES (?, ?, ?)";
+    $sql = "INSERT INTO users (nev, email, password) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('sss', $username, $email, $password);
 
@@ -51,6 +51,6 @@ if (isset($_POST['login'])) {
     }
 }
 
-$stmt->close();
+
 $conn->close();
 ?>

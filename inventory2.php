@@ -85,7 +85,7 @@
       <tbody>
       
     <?php  foreach ($result1 as $row1) {
-        print "<tr><td>" . $row1['brand'] . "</td>" . " <td>" .$row1['model'] . " </td>"."<td>" .$row1['p_date'] ."</td>"." <td>" .$row1['price'] ."</td>"."<td>".  print "<img src='img/$row1[image]' style='width:10%'>"; "</td></tr>";
+        print "<tr><td>" . $row1['brand'] . "</td>" . " <td>" .$row1['model'] . " </td>"."<td>" .$row1['p_date'] ."</td>"." <td>" .$row1['price'] ."</td>"."<td>";  print "<img src='img/$row1[image]' style='width:10%'>". "</td></tr>";
       }
     
 			// Close database connection

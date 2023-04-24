@@ -25,17 +25,17 @@
     <form method="post" action="">
       
       <label for="">Brand: </label>
-      <input type="text" id="brand" name="brand">
+      <input type="text" id="brand" name="brand" default="*">
       <label for="model">Model: </label>
-      <input type="text" id="model" name="model">
+      <input type="text" id="model" name="model" default="*">
       <label for="p_date">Production date: </label>
-      <input type="text" id="p_date" name="p_date">
+      <input type="text" id="p_date" name="p_date" default="*">
       <label for="price">Price: </label>
-      <input type="text" id="min_price" name="min_price">
+      <input type="text" id="min_price" name="min_price" default="*">
       <label for=""> - </label>
-      <input type="text" id="max_price" name="max_price">
+      <input type="text" id="max_price" name="max_price" default="*">
 
-      <button type="submit" id="submit" name="submit">Go</button>
+      <button type="submit1" id="submit1" name="submit1">Go</button>
     </form>
     <?php
     try {
@@ -49,9 +49,30 @@
   catch (PDOException $e) {
   echo "Error: ".$e->getMessage();
   } 
-?>
+  ?>
+  
+<?php
+		// Establish database connection
+		$conn = mysqli_connect("localhost", "root", "", "cars");
 
-    <table>
+		// Check if submit button is clicked
+		if (isset($_POST['submit1'])) {
+			// Retrieve search values
+			$search1 = $_POST['brand'];
+			$search2 = $_POST['model'];
+			$search3 = $_POST['p_date'];
+      $search4 = $_POST['min_price'];
+      $search5 = $_POST['max_price'];
+
+			// Build SQL query
+			$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' AND model LIKE '%$search2%' and p_date Like '%$search3%' ";
+
+			// Execute SQL query
+			$result1 = mysqli_query($conn, $sql);
+
+			// Check if any results are returned
+     ?>
+<table>
       <thead>
         <tr>
           <th>Make</th>
@@ -62,11 +83,18 @@
         </tr>
       </thead>
       <tbody>
+      
+    <?php  foreach ($result1 as $row1) {
+        print "<tr><td>" . $row1['brand'] . "</td>" . " <td>" .$row1['model'] . " </td>"."<td>" .$row1['p_date'] ."</td>"." <td>" .$row1['price'] ."</td>"."<td>".  print "<img src='img/$row1[image]' style='width:10%'>"; "</td></tr>";
+      }
+    
+			// Close database connection
+			
+		}
+	?>
 
- <?php foreach ($result as $row){
-       
-print "<tr><td>" . $row['brand'] . "</td>" . " <td>" .$row['model'] . " </td>"."<td>" .$row['p_date'] ."</td>"." <td>" .$row['price'] ."</td>"."<td>".  print "<img src='img/$row[image]' style='width:10%'>"; "</td></tr>";
-     }  ?>
+   
+
      
       
          
@@ -236,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });*/
 
-
+mysqli_close($conn);
     </script>
   </body>
 </html>

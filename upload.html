@@ -44,23 +44,11 @@
         
 
         <hr>
+        
 
         <h1>Gallery</h1>
 
-        <div class="gallery">
-            <?php
-                $sql = "SELECT image_path FROM images";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo '<img src="' . $row["image_path"] . '">';
-                    }
-                } else {
-                    echo "No images found.";
-                }
-            ?>
-        </div>
+       
           
     </main>
 

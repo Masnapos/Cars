@@ -29,7 +29,7 @@ if ($conn->connect_error) {
         $TYPES = array ('.jpg', '.png');
         $MEDIATYPES = array('image/jpeg', 'image/png');
         $DATEFORMAT = "m/d/Y H:i";
-        $MAXSIZE = 500*1024;
+        $MAXSIZE = 600*1024;
         $messages = array();   
     
         // Form checkings:
@@ -71,6 +71,15 @@ if ($conn->connect_error) {
             }        
         }
 
+        
+
+        if (!empty($messages))
+        { // Displays the messages in unordered list:
+        echo '<ul>';
+        foreach($messages as $m)
+        echo "<li>$m</li>";
+        echo '</ul>';
+        }
        
         
        

@@ -29,3 +29,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo "</table>";    
 }
 ?>
+
+<?php if (isset($_POST['submit'])){
+  // get search bar inputs
+  $search1 = $_POST['brand'];
+  $search2 = $_POST['model'];
+  $search3 = $_POST['p_date'];
+  $search4 = $_POST['min_price'];
+  $search5 = $_POST['max_price'];
+  //$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+  $conn = mysqli_connect("localhost", "root", "", "cars");
+		$conn->query('SET NAMES utf8 COLLATE utf8_general_ci');
+		
+	
+  // build SQL query
+  $sql = "SELECT * FROM cars WHERE brand='$search1' or model='$search2' or p_date = $search3";
+
+  // execute query and get results
+  $result = mysqli_query($conn, $sql);
+  if ($result->num_rows > 0) {
+   } 
+     
+     
+     else {
+      echo "0 results";
+    }
+     
+  }
+     ?>

@@ -37,9 +37,9 @@
       <div class="col-lg-2">
       <label for="p_date">Production date: </label>
       <input type="text" id="p_date" name="p_date" default="*"></div>
-      <div class="col-lg-2">
+      <div class="col-lg-1">
       <label for="price">Price: </label></div>
-      <div class="col-lg-3"><input type="text" id="min_price" name="min_price" default="*">
+      <div class="col-lg-4"><input type="text" id="min_price" name="min_price" default="*">
       <label for=""> - </label>
       <input type="text" id="max_price" name="max_price" default="*"></div>
 

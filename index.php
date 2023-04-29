@@ -66,48 +66,15 @@
 					<a href="contact.html">CONTACT</a>
  
 				</li>
-				<button><span class="postnewcar">POST NEW CAR</span></button>
+				<span class="postnewcar"><a href="upload.html">
+				<button>POST NEW CAR</button></a></span>
 			</ul>
 		</div>
 	</nav>
 </div>
 <!--_______________________________________ Carousel__________________________________ -->
 
-<?php
-    try {
 
-	$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', 
-  '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-  $pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
-  $statement = "Select brand, model, p_date, price, image From cars";
-  $result = $pdo->query($statement);
-  }
-  catch (PDOException $e) {
-  echo "Error: ".$e->getMessage();
-  } 
-  ?>
-  
-<?php
-		// Establish database connection
-		$conn = mysqli_connect("localhost", "root", "", "cars");
-
-		// Check if submit button is clicked
-		if (isset($_POST['submit1'])) {
-			// Retrieve search values
-			$search1 = $_POST['brand'];
-			$search2 = $_POST['model'];
-			$search3 = $_POST['p_date'];
-      $search4 = $_POST['min_price'];
-      $search5 = $_POST['max_price'];
-
-			// Build SQL query
-			//$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' AND model LIKE '%$search2%' and p_date Like '%$search3%' ";
-
-			// Execute SQL query
-			$result1 = mysqli_query($conn, $statement);
-
-			// Check if any results are returned
-		}?>
 <div class="allcontain">
 	<div id="carousel-up" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner " role="listbox">
@@ -150,49 +117,70 @@
 				<div class="searchtxt">
 					<h1>SEARCH TEXT</h1>
 				</div>
-				<form class="navbar-form navbar-left searchformmargin" role="search">
+				<form class="navbar-form navbar-left searchformmargin"  action="#" method="post" >
 					<div class="form-group">
-						<input type="text" class="form-control searchform" placeholder="Enter Keyword">
+						<input type="text" class="form-control searchform" placeholder="Brand" id="brand" name="brand" default="*">
 					</div>
+					<div class="form-group">
+						<input type="text" class="form-control searchform" placeholder="Model" id="model"  name="model" default="*">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control searchform" placeholder="Production date" id="p_date" name="p_date" default="*">
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control searchform" placeholder="Maximum price" id="max_price"  name="max_price" default="*">
+					</div>
+					<button type="submit1" id="submit1" name="submit1" class="searchbutton"><span class="glyphicon glyphicon-search "></span></button>
+
+
 				</form>
-				<ul class="nav navbar-nav navbarborder">
-					<li class="li-category">
-						<a class="btn  dropdown-toggle btn-costume"  id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Category<span class="glyphicon glyphicon-chevron-down downicon"></span></a>
-						<ul class="dropdown-menu" id="mydd">
-							<li><a href="#">Epic</a></li>
-							<li><a href="#">Old</a></li>
-							<li><a href="#">New</a></li>
-						</ul>
-					</li>
-					<li class="li-minyear"><a class="btn  dropdown-toggle btn-costume"  id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Min Year <span class="glyphicon glyphicon-chevron-down downicon"></span></a>
-						<ul class="dropdown-menu" id="mydd2">
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-						</ul>
-					</li>
-					<li class="li-maxyear"><a class="btn dropdown-toggle btn-costume"  id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Max Year <span class="glyphicon glyphicon-chevron-down downicon"></span></a>
-						<ul class="dropdown-menu" id="mydd3">
-							<li><a href="#">1900</a></li>
-							<li><a href="#">2000</a></li>
-							<li><a href="#">2016</a></li>
-						</ul>
-					</li>
-					<li class="li-slideprice">
-						<p> <label class="slidertxt" for="amount">Price </label>
-							<input class="priceslider" type="text" id="amount" readonly="readonly">
-						</p>
-							<div id="slider-range"></div>
-							
-					</li>
-					<li class="li-search"> <button class="searchbutton"><span class="glyphicon glyphicon-search "></span></button></li>
-				</ul>
+				
  
 			</div>
 		</nav>
 	</div>
 </div>
 <!-- ____________________Featured Section ______________________________--> 
+<?php
+    try {
+
+	$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', 
+  '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+  $pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
+  $statement = "Select brand, model, p_date, price, text, image From cars";
+  $result = $pdo->query($statement);
+  }
+  catch (PDOException $e) {
+  echo "Error: ".$e->getMessage();
+  } 
+  ?>
+  
+<?php
+		// Establish database connection
+		$conn = mysqli_connect("localhost", "root", "", "cars");
+
+		// Check if submit button is clicked
+		if (isset($_POST['submit1'])) {
+			// Retrieve search values
+			$search1 = $_POST['brand'];
+			$search2 = $_POST['model'];
+			$search3 = $_POST['p_date'];
+     
+      
+
+			// Build SQL query
+			if (isset($_POST['max_price'])) {
+				$search5 = $_POST['max_price'];
+				$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' and price < '$search5'";
+			}
+			else {
+			$sql = "SELECT brand, model, p_date,  image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' ";
+				}
+			// Execute SQL query
+			
+
+			// Check if any results are returned
+		}?>
 <div class="allcontain">
 	<div class="feturedsection">
 		<h1 class="text-center"><span class="bdots">&bullet;</span>F E A T U R E S<span class="carstxt">C A R S</span>&bullet;</h1>
@@ -206,7 +194,7 @@
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
 						<div class="featurecontant">
-							<h1>LOREM IPSUM</h1>
+							<h1>Porsche</h1>
 							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
 			 						sed do eiusmod tempor incididunt </p>
 			 				<h2>Price &euro;</h2>
@@ -232,7 +220,7 @@
 					</div>
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
 						<div class="featurecontant">
-							<h1>LOREM IPSUM</h1>
+							<h1>Porsche</h1>
 							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
 			 						sed do eiusmod tempor incididunt </p>
 			 				<h2>Price &euro;</h2>
@@ -268,92 +256,50 @@
 <br>
 <br>
 <!-- ________________________Latest Cars Image Thumbnail________________-->
-	<?php 
-	$result1 = mysqli_query($conn, $statement);
-	foreach ($result1 as $row1)
-	{ print "<div class='grid'>";
-		print "<div class='row'>";
+	<div class='grid'>
+<div class='row'>
+			<?php 
+	$result1 = mysqli_query($conn, $sql);
+	 
+	foreach ($result1 as $row1){
+	
+		
+		
 			print "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>";
 				print "<div class='txthover'>";
 					print "<img src='img/$row1[image]' alt='car1'>";
 					print "	<div class='txtcontent'>";
-							print "<div class='stars'>";
-								print "<div class='glyphicon glyphicon-star'></div>";
-								 print "<div class='glyphicon glyphicon-star'></div>";
-								 print "<div class='glyphicon glyphicon-star'></div>";
-							print "</div>";
+							
 							print "<div class='simpletxt'>";
 								print "<h3 class='name'>".$row1['brand']."</h3>";
-								print "<p>'Lorem ipsum dolor sit amet, consectetur,<br>
-	 							sed do eiusmod tempor incididunt' </p>";
-	 							print "<h4 class='price'>".$row1['brand']."</h4>";
+								print "<p>".$row1['model']. " </p>";
+	 							print "<h4 class='price'>".$row1['price'].' $'."</h4>";
 	 							print "<button>READ MORE</button><br>";
-	 							print "<div class='wishtxt'>";
-		 							print "<p class='paragraph1'> Add to Wishlist <span class='glyphicon glyphicon-heart'></span> </p>";
-		 							print "<p class='paragraph2'>Compare <span class='icon'><img src='image/compicon.png' alt='compicon'></span></p>
-		 						</div>
-							</div>";
-							print "<div class='stars2'>";
-								print "<div class='glyphicon glyphicon-star'></div>";
-								print "<div class='glyphicon glyphicon-star'></div>";
-								print "<div class='glyphicon glyphicon-star'></div>
-							</div>
-						</div>
-				</div>	 
-			</div>";}
-			?>
+	 							
+							print "</div>";
+							
+							
+						
+				print "</div>";	 
+	print "</div>";print"</div>";
+
+
+	
+}?>
 			
 			
 			
 			
 			
 			
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-				<div class="txthover">
-					<img src="image/car8.jpg" alt="car8">
-						<div class="txtcontent">
-							<div class="stars">
-								<div class="glyphicon glyphicon-star"></div>
-								<div class="glyphicon glyphicon-star"></div>
-								<div class="glyphicon glyphicon-star"></div>
-							</div>
-							<div class="simpletxt">
-								<h3 class="name">Meclaren</h3>
-								<p>"Lorem ipsum dolor sit amet, consectetur,<br>
-	 							sed do eiusmod tempor incididunt" </p>
-	 							<h4 class="price">2500 &euro;</h4>
-	 							<button>READ MORE</button><br>
-	 							<div class="wishtxt">
-		 							<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
-		 							<p class="paragraph2">Compare <span class="icon"><img src="image/compicon.png" alt="compicon"></span></p>
-		 						</div>
-							</div>
-							<div class="stars2">
-								<div class="glyphicon glyphicon-star"></div>
-								<div class="glyphicon glyphicon-star"></div>
-								<div class="glyphicon glyphicon-star"></div>
-							</div>
-						</div>
-				</div>	 
-			</div>	
-		</div>
+			</div>
+			
+
 	</div>
 <!-- _______________________________News Letter ____________________-->
-	<div class="newslettercontent">
-		<div class="leftside">
-			<img src="image/border.png" alt="border">
-			<h1>NEWSLETTER</h1>
-			<p>Subscribe to the COLLECTIONCARS mailing list to <br>
-				receive updates on new arrivals, special offers <br>
-				and other discount information.</p>
-		</div>
-		<div class="rightside">
-			<img class="newsimage" src="image/newsletter.jpg" alt="newsletter">
-			<input type="text" class="form-control" id="subemail" placeholder="EMAIL">
-			<button>SUBSCRIBE</button>
-		</div>
-	</div>
+	
 	<!-- ______________________________________________________Bottom Menu ______________________________-->
+	<br>
 	<div class="bottommenu">
 		<div class="bottomlogo">
 		<span class="dotlogo">&bullet;</span><img src="image/collectionlogo1.png" alt="logo1"><span class="dotlogo">&bullet;;</span>

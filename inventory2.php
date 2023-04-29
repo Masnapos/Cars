@@ -4,6 +4,9 @@
     <title>Inventory</title>
     <link rel="stylesheet" href="stylei.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    
+  
   </head>
   <body>
     <header>
@@ -22,21 +25,27 @@
         <li><a href="#" onclick="showLoginModal()">Login</a></li>
       </ul>
     </div>
+    <div class="container-fluid">
     <form method="post" action="">
-      
+      <div class="row">
+        <div class="col-lg-2">
       <label for="">Brand: </label>
-      <input type="text" id="brand" name="brand" default="*">
-      <label for="model">Model: </label>
-      <input type="text" id="model" name="model" default="*">
+      <input type="text" id="brand" name="brand" default="*"></div>
+      <div class="col-lg-2">
+        <label for="model">Model: </label>
+      <input type="text" id="model" name="model" default="*"></div>
+      <div class="col-lg-2">
       <label for="p_date">Production date: </label>
-      <input type="text" id="p_date" name="p_date" default="*">
-      <label for="price">Price: </label>
-      <input type="text" id="min_price" name="min_price" default="*">
+      <input type="text" id="p_date" name="p_date" default="*"></div>
+      <div class="col-lg-2">
+      <label for="price">Price: </label></div>
+      <div class="col-lg-3"><input type="text" id="min_price" name="min_price" default="*">
       <label for=""> - </label>
-      <input type="text" id="max_price" name="max_price" default="*">
+      <input type="text" id="max_price" name="max_price" default="*"></div>
 
-      <button type="submit1" id="submit1" name="submit1">Go</button>
+      <div class="col-lg-1"><button type="submit1" id="submit1" name="submit1">Go</button></div></div>
     </form>
+  </div>
     <?php
     try {
 
@@ -266,6 +275,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 mysqli_close($conn);
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
   </body>
 </html>
 

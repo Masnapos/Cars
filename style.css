@@ -1,4 +1,4 @@
-/* General Styles */
+/* General Styles 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -63,7 +63,7 @@ footer {
   margin-top: 2rem;
 }
 
-/* Slideshow Styles */
+/* Slideshow Styles 
 .card-wrapper {
   max-width: 600px;
   margin: 0 auto;
@@ -100,7 +100,7 @@ footer {
 .card-prev:hover, .card-next:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
-
+*/
 /* Modal Styles */
 .modal {
   display: none;
@@ -157,7 +157,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
 }
 
 button, input[type="submit"] {
-  background-color: #4a89a9;
+ /* background-color: #4a89a9;*/
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -167,17 +167,17 @@ button, input[type="submit"] {
   }
   
   button:hover, input[type="submit"]:hover {
-  background-color: #31708f;
+  /*background-color: #31708f;*/
   }
   
   form {
   margin-bottom: 1rem;
   }
   
-  a {
+ /* a {
   color: #4a89a9;
   text-decoration: none;
-  }
+  }*/
   
   a:hover {
   text-decoration: underline;

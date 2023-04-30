@@ -17,6 +17,7 @@ array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
  if($row = $sth->fetch(PDO::FETCH_ASSOC)) {
  $message = "The username already exists!";
+ 
  $again = "true";
  }
 
@@ -44,9 +45,11 @@ array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
  else {
  $message = "Your registration wasn't successful.";
  $again = true;
+ 
  }
- echo $message;
- }}
+ 
+ }  echo $message;
+}
  catch (PDOException $e) {
  echo "Error: ".$e->getMessage();
  } 

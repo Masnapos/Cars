@@ -41,6 +41,7 @@ array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
  $newid = $dbh->lastInsertId();
  $message = "Your registration was successful.<br>ID: {$newid}"; 
  $again = false;
+ header("Location: index.php");
  }
  else {
  $message = "Your registration wasn't successful.";
@@ -48,8 +49,14 @@ array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
  
  }
  
- }  echo $message;
+ }  
+ print "<script>
+ alert('$message');
+        </script>";
+        
 }
+
+
  catch (PDOException $e) {
  echo "Error: ".$e->getMessage();
  } 

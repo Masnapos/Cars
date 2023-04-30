@@ -26,7 +26,7 @@ if (isset($_POST['login'])) {
 
     if ($result->num_rows > 0) {
         // Redirect to your desired page or set session variables
-      
+        
         header("Location: index.php");
     } else {
         $_SESSION["login_error"] = "Invalid credentials!"; 

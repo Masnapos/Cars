@@ -30,7 +30,7 @@
 			</ul>
 			<ul class="logreg">
 				<li><a href="#" onclick="showLoginModal()">Login</a></li>
-				<li><a href="#"><span class="register">Register</span></a></li>
+				<li><a href="#" onclick="showRegisterModal()"><span class="register">Register</span></a></li>
 			</ul>
 	</div>
 	<!-- Navbar Up -->

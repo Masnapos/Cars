@@ -26,30 +26,13 @@ if (isset($_POST['login'])) {
 
     if ($result->num_rows > 0) {
         // Redirect to your desired page or set session variables
-        header("Location: your_desired_page.php");
+        header("Location: index.php");
     } else {
         $_SESSION["login_error"] = "Invalid credentials!";
         header("Location: index.php");
     }
 
-} elseif (isset($_POST['register'])) {
-    // Registration logic
-    $username = $_POST['nev'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $sql = "INSERT INTO users (nev, email, password) VALUES (?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('sss', $username, $email, $password);
-
-    if ($stmt->execute()) {
-        // Redirect to your desired page or set session variables
-        header("Location: your_desired_page.php");
-    } else {
-        $_SESSION["register_error"] = "Registration failed!";
-        header("Location: index.php");
-    }
-}
+} 
 
 
 $conn->close();

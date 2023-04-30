@@ -345,12 +345,12 @@ $sql = "SELECT brand, model, p_date, price, image FROM cars";
 			</div>
 			<div class="modal-body">
 			
-				<form>
-					<label for="login-username">Username:</label>
-					<input type="text" id="login-username" name="login-username"><br><br>
-					<label for="login-password">Password:</label>
-					<input type="password" id="login-password" name="login-password"><br><br>
-					<button type="submit" class="submit-button">Login</button>
+				<form method="post" action="login.php">
+					<label for="nev">Username:</label>
+					<input type="text" id="nev" name="nev"><br><br>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"><br><br>
+					<button type="submit"  id="login" name="login">Login</button>
 				</form>
 				<p>Don't have an account? <a href="#" onclick="showRegisterModal()">Register</a></p>
 
@@ -365,13 +365,14 @@ $sql = "SELECT brand, model, p_date, price, image FROM cars";
 		<span class="close" onclick="closeRegisterModal()">&times;</span>
 		<h2>Register</h2>
 		
-		<form>
-			<label for="registerUsername">Username:</label>
-			<input type="text" id="registerUsername" name="registerUsername">
-			<label for="registerPassword">Password:</label>
-			<input type="password" id="registerPassword" name="registerPassword">
-			<label for="registerPassword">Enter password again:</label>
-			<input type="password" id="registerPassword" name="registerPassword">
+		<form method="post" action="register.php">
+			<label for="nev">Username:</label>
+			<input type="text" id="nev" name="nev">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email">
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password">
+			
 			<button type="submit">Register</button>
 		</form>
 

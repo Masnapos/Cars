@@ -1,15 +1,15 @@
 <?php
 
- if(isset($_POST['username']) && isset($_POST['password'])) {
+ if(isset($_POST['nev']) && isset($_POST['password']) && isset($_POST['submit'])) {
 
  try {
  
- $dbh = new PDO('mysql:host=localhost;dbname=databaselesson', 'root', 
+ $dbh = new PDO('mysql:host=localhost;dbname=cars', 'root', 
 '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
  $dbh->query('SET NAMES utf8 COLLATE utf8_general_ci');
  
- $sqlSelect = "select id, nev,  from users where user_name = :nev and 
+ $sqlSelect = "select id, nev from users where user_name = :nev and 
  password = sha1(:password)";
  
   $sth = $dbh->prepare($sqlSelect);

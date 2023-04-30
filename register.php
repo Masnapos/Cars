@@ -45,11 +45,11 @@ array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
  $message = "Your registration wasn't successful.";
  $again = true;
  }
- 
- }
+ echo $message;
+ }}
  catch (PDOException $e) {
  echo "Error: ".$e->getMessage();
  } 
- }
+ 
  }
 ?>

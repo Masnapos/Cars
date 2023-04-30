@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="slider.css">
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<link rel="stylesheet" type="text/css" href="contactstyle.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 <!-- Header -->
@@ -27,8 +28,8 @@
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-				<li><a href="#">Login </a> </li>
-				<li><a href="#"><span class="register">Register</span></a></li>
+				<li><a href="#" onclick="showLoginModal()" >Login </a> </li>
+				<li><a href="#" onclick="showRegisterModa()"><span class="register">Register</span></a></li>
 			</ul>
 	</div>
 	<!-- Navbar Up -->
@@ -193,7 +194,87 @@
 
 
 
- 
+<div class="modal" id="loginModal">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span class="close" onclick="closeLoginModal()">&times;</span>
+			<h2>Login</h2>
+		</div>
+		<div class="modal-body">
+		
+			<form method="post" action="login.php">
+				<label for="nev">Username:</label>
+				<input type="text" id="nev" name="nev"><br><br>
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password"><br><br>
+				<button type="submit"  id="login" name="login">Login</button>
+			</form>
+			<p>Don't have an account? <a href="#" onclick="showRegisterModal()">Register</a></p>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+<div class="modal-content">
+	<span class="close" onclick="closeRegisterModal()">&times;</span>
+	<h2>Register</h2>
+	
+	<form method="post" action="register.php">
+		<label for="nev">Username:</label>
+		<input type="text" id="nev" name="nev">
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email">
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password">
+		
+		<button type="submit">Register</button>
+	</form>
+
+</div>
+</div>
+<script>
+	const sideNav = document.getElementById('sideNav');
+	const hamburger = document.getElementById('hamburger');
+
+	hamburger.addEventListener('click', () => {
+		sideNav.classList.toggle('open');
+	});
+
+	document.addEventListener('click', (e) => {
+		if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+			sideNav.classList.remove('open');
+		}
+	});
+	function showLoginModal() {
+document.getElementById('loginModal').style.display = 'block';
+}
+
+function closeLoginModal() {
+document.getElementById('loginModal').style.display = 'none';
+}
+
+function showRegisterModal() {
+document.getElementById('registerModal').style.display = 'block';
+}
+
+function closeRegisterModal() {
+document.getElementById('registerModal').style.display = 'none';
+}
+function showRegisterModal() {
+closeLoginModal();
+const registerModal = document.getElementById('registerModal');
+registerModal.style.display = 'block';
+}
+// Close modals when clicking outside of them
+window.onclick = function (event) {
+if (event.target.classList.contains('modal')) {
+	event.target.style.display = 'none';
+}
+}; </script>
+
 
  
 

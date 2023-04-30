@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 if (isset($_POST['login'])) {
     // Login logic
     $username = $_POST['nev'];
-    $password = $_POST['password'];
+    $password = sha1($_POST['password']);
 
     $sql = "SELECT * FROM users WHERE nev = ? AND password = ?";
     $stmt = $conn->prepare($sql);
@@ -25,13 +25,13 @@ if (isset($_POST['login'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Redirect to your desired page or set session variables
+        
         
         header("Location: index.php");
     } else {
         $_SESSION["login_error"] = "Invalid credentials!"; 
          echo "nem mükszik";
-        header("Location: index.php");
+        //header("Location: index.php");
     }
 
 } 

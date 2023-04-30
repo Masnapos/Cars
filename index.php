@@ -11,6 +11,9 @@
 	<link rel="stylesheet" type="text/css" href="source/font-awesome-4.5.0/css/font-awesome.css">
 	<link rel="stylesheet" type="text/css" href="slider.css">
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+	
 </head>
 <body>
 <!-- Header -->
@@ -26,7 +29,7 @@
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-				<li><a href="#">Login </a> </li>
+				<li><a href="#" onclick="showLoginModal()">Login</a></li>
 				<li><a href="#"><span class="register">Register</span></a></li>
 			</ul>
 	</div>
@@ -158,7 +161,7 @@
 <?php
 		// Establish database connection
 		$conn = mysqli_connect("localhost", "root", "", "cars");
-
+$sql = "SELECT brand, model, p_date, price, image FROM cars";
 		// Check if submit button is clicked
 		if (isset($_POST['submit1'])) {
 			// Retrieve search values
@@ -169,12 +172,13 @@
       
 
 			// Build SQL query
-			if (isset($_POST['max_price'])) {
-				$search5 = $_POST['max_price'];
-				$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' and price < '$search5'";
+			if (empty($_POST['max_price'])) {
+				$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' ";
 			}
 			else {
-			$sql = "SELECT brand, model, p_date,  image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' ";
+				$search5 = $_POST['max_price'];
+				$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' and price < '$search5'";
+			
 				}
 			// Execute SQL query
 			
@@ -308,7 +312,7 @@
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
 			<li role="presentation"><a href="#/">CATEGORIES</a></li>
 			<li role="presentation"><a href="#/">PREORDERS</a></li>
-			<li role="presentation"><a href="#/">CONTACT US</a></li>
+			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#/">RECEIVE OUR NEWSLETTER</a></li>
 		</ul>
 		<p>"Lorem ipsum dolor sit amet, consectetur,  sed do eiusmod tempor incididunt <br>
@@ -330,6 +334,89 @@
 			</div>
 	</div>
 </div>
+
+
+	
+<div class="modal" id="loginModal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close" onclick="closeLoginModal()">&times;</span>
+				<h2>Login</h2>
+			</div>
+			<div class="modal-body">
+			
+				<form>
+					<label for="login-username">Username:</label>
+					<input type="text" id="login-username" name="login-username"><br><br>
+					<label for="login-password">Password:</label>
+					<input type="password" id="login-password" name="login-password"><br><br>
+					<button type="submit" class="submit-button">Login</button>
+				</form>
+				<p>Don't have an account? <a href="#" onclick="showRegisterModal()">Register</a></p>
+
+			</div>
+		</div>
+	</div>
+	
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeRegisterModal()">&times;</span>
+		<h2>Register</h2>
+		
+		<form>
+			<label for="registerUsername">Username:</label>
+			<input type="text" id="registerUsername" name="registerUsername">
+			<label for="registerPassword">Password:</label>
+			<input type="password" id="registerPassword" name="registerPassword">
+			<label for="registerPassword">Enter password again:</label>
+			<input type="password" id="registerPassword" name="registerPassword">
+			<button type="submit">Register</button>
+		</form>
+
+	</div>
+</div>
+	<script>
+		const sideNav = document.getElementById('sideNav');
+		const hamburger = document.getElementById('hamburger');
+
+		hamburger.addEventListener('click', () => {
+			sideNav.classList.toggle('open');
+		});
+
+		document.addEventListener('click', (e) => {
+			if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+				sideNav.classList.remove('open');
+			}
+		});
+		function showLoginModal() {
+	document.getElementById('loginModal').style.display = 'block';
+}
+
+function closeLoginModal() {
+	document.getElementById('loginModal').style.display = 'none';
+}
+
+function showRegisterModal() {
+	document.getElementById('registerModal').style.display = 'block';
+}
+
+function closeRegisterModal() {
+	document.getElementById('registerModal').style.display = 'none';
+}
+function showRegisterModal() {
+	closeLoginModal();
+	const registerModal = document.getElementById('registerModal');
+	registerModal.style.display = 'block';
+}
+// Close modals when clicking outside of them
+window.onclick = function (event) {
+	if (event.target.classList.contains('modal')) {
+		event.target.style.display = 'none';
+	}
+}; </script>
+  
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>

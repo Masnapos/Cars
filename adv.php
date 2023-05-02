@@ -25,7 +25,7 @@
 				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<ul class="givusacall">
-				<li>Give us a call : +66666666 </li>
+				<li>Give us a call : +36112233445 </li>
 			</ul>
 			<ul class="logreg">
 				<li><a href="#" onclick="showLoginModal()" >Login </a> </li>
@@ -132,7 +132,8 @@ if (mysqli_num_rows($result) > 0) {
   
   while ($row = mysqli_fetch_assoc($result)) {
     echo "<div>";
-    echo "<img src='" . $row['image'] . "' alt='" . $row['brand'] . " " . $row['model'] . "'>";
+    echo $row['image'];
+    echo "<img src='img/$row[image]'" . "' alt='" . $row['brand'] . " " . $row['model'] . "'>";
     echo "<h2>" . $row['brand'] . " " . $row['model'] . "</h2>";
     echo "<p>Displacement: " . $row['displacement'] . " cc</p>";
     echo "<p>Production date: " . $row['p_date'] . "</p>";

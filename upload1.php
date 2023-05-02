@@ -96,6 +96,9 @@ if ($result->num_rows > 0) {
     echo "No images found.";
 }
 
+
+
+
 // Close the database connection
 $conn->close();
 ?>

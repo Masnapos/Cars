@@ -14,6 +14,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	
 	
+	
 </head>
 <body>
 <!-- Header -->
@@ -69,8 +70,9 @@
 					<a href="contact.html">CONTACT</a>
  
 				</li>
-				<span class="postnewcar"><a href="upload.html">
-				<button>POST NEW CAR</button></a></span>
+				<li>
+				<a id="newcar" href="upload.html"><span class="postnewcar">
+				<button>POST NEW CAR</button></span></a></li>
 			</ul>
 		</div>
 	</nav>
@@ -161,7 +163,7 @@
 <?php
 		// Establish database connection
 		$conn = mysqli_connect("localhost", "root", "", "cars");
-$sql = "SELECT brand, model, p_date, price, image FROM cars";
+$sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		// Check if submit button is clicked
 		if (isset($_POST['submit1'])) {
 			// Retrieve search values
@@ -173,11 +175,11 @@ $sql = "SELECT brand, model, p_date, price, image FROM cars";
 
 			// Build SQL query
 			if (empty($_POST['max_price'])) {
-				$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' ";
+				$sql = "SELECT id,   brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' ";
 			}
 			else {
 				$search5 = $_POST['max_price'];
-				$sql = "SELECT brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' and price < '$search5'";
+				$sql = "SELECT id, brand, model, p_date, price, image FROM cars WHERE brand LIKE '%$search1%' and model like '%$search2%' and p_date like '%$search3%' and price < '$search5'";
 			
 				}
 			// Execute SQL query
@@ -267,8 +269,7 @@ $sql = "SELECT brand, model, p_date, price, image FROM cars";
 	 
 	foreach ($result1 as $row1){
 	
-		
-		
+		 $varid = $row1['id'];
 			print "<div class='col-xs-12 col-sm-6 col-md-4 col-lg-3'>";
 				print "<div class='txthover'>";
 					print "<img src='img/$row1[image]' alt='car1'>";
@@ -278,8 +279,10 @@ $sql = "SELECT brand, model, p_date, price, image FROM cars";
 								print "<h3 class='name'>".$row1['brand']."</h3>";
 								print "<p>".$row1['model']. " </p>";
 	 							print "<h4 class='price'>".$row1['price'].' $'."</h4>";
-	 							print "<button>READ MORE</button><br>";
-	 							
+								print "<form method='get' action='adv.php'>";
+								print "<input type='hidden' name='varname' value=$varid>";
+	 							print "<button type='submit'>READ MORE</button><br>";
+	 							print "</form>";
 							print "</div>";
 							
 							
@@ -310,10 +313,11 @@ $sql = "SELECT brand, model, p_date, price, image FROM cars";
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-			<li role="presentation"><a href="#/">CATEGORIES</a></li>
-			<li role="presentation"><a href="#/">PREORDERS</a></li>
+			<li role="presentation"><a href="upload.html">POST NEW CAR</a></li>
+			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
-			<li role="presentation"><a href="#/">RECEIVE OUR NEWSLETTER</a></li>
+			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
+			
 		</ul>
 		<p>"Lorem ipsum dolor sit amet, consectetur,  sed do eiusmod tempor incididunt <br>
 			eiusmod tempor incididunt </p>
@@ -373,7 +377,7 @@ $sql = "SELECT brand, model, p_date, price, image FROM cars";
 			<label for="password">Password:</label>
 			<input type="password" id="password" name="password">
 			
-			<button type="submit">Register</button>
+			<button type="submit" id="register">Register</button>
 		</form>
 
 	</div>

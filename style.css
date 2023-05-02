@@ -156,8 +156,8 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
   box-sizing: border-box;
 }
 
-button, input[type="submit"] {
- /* background-color: #4a89a9;*/
+#login, #register, input[type="submit"] {
+  background-color: #4a89a9;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -166,8 +166,12 @@ button, input[type="submit"] {
   width: 100%;
   }
   
-  button:hover, input[type="submit"]:hover {
-  /*background-color: #31708f;*/
+  #login:hover, #register:hover, input[type="submit"]:hover {
+  background-color: #31708f;
+  }
+  #newcar {
+    text-decoration: none;
+
   }
   
   form {
@@ -231,7 +235,7 @@ button, input[type="submit"] {
     min-height: 100px;
   }
   
-  .contact-form button[type="submit"] {
+  /*.contact-form button[type="submit"] {
     background-color: #4caf50;
     border: none;
     color: white;
@@ -245,5 +249,5 @@ button, input[type="submit"] {
   
   .contact-form button[type="submit"]:hover {
     background-color: #45a049;
-  }
+  }*/
   

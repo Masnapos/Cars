@@ -3,6 +3,7 @@
 <head>
     <title>Image Upload Form</title>
     <link rel="stylesheet" href="upload.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
         <div class="side-nav" id="sideNav">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="inventory2.html">Inventory</a></li>
+                <li><a href="contact.html">Contact</a></li>
                 <li><a href="upload.html">Upload images</a></li>
                 <li><a href="#" onclick="showLoginModal()">Login</a></li>
             </ul>
@@ -53,79 +54,86 @@
     </main>
 
     <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Login</h2>
-            <form action="login.php" method="post" id="loginForm">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username">
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password">
-                <input type="submit" value="Login">
-            </form>
-            <p>Don't have an account? <a href="#" onclick="showRegisterModal()">Register</a></p>
-        </div>
-    </div>
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="close" onclick="closeLoginModal()">&times;</span>
+				<h2>Login</h2>
+			</div>
+			<div class="modal-body">
+			
+				<form method="post" action="login.php">
+					<label for="nev">Username:</label>
+					<input type="text" id="nev" name="nev"><br><br>
+					<label for="password">Password:</label>
+					<input type="password" id="password" name="password"><br><br>
+					<button type="submit"  id="login" name="login">Login</button>
+				</form>
+				<p>Don't have an account? <a href="#" onclick="showRegisterModal()">Register</a></p>
 
-    <div class="modal" id="registerModal">
-        <div class="modal-content">
-            <span class="close" onclick="closeRegisterModal()">&times;</span>
-            <h2>Register</h2>
-            <form action="login.php" method="post" id="loginForm">
-                <label for="reg-username">Username:</label>
-                <input type="text" name="reg-username" id="reg-username">
-                <label for="reg-email">Email:</label>
-                <input type="email" name="reg-email" id="reg-email">
-                <label for="reg-password">Password:</label>
-                <input type="password" name="reg-password" id="reg-password">
-                <label for="reg-confirm-password">Confirm Password:</label>
-                <input type="password" name="reg-confirm-password" id="reg-confirm-password">
-                <input type="submit" value="Register">
-            </form>
-            <p>Already have an account? <a href="#" onclick="showLoginModal()">Login</a></p>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
+	
+
+<!-- Register Modal -->
+<div id="registerModal" class="modal">
+	<div class="modal-content">
+		<span class="close" onclick="closeRegisterModal()">&times;</span>
+		<h2>Register</h2>
+		
+		<form method="post" action="register.php">
+			<label for="nev">Username:</label>
+			<input type="text" id="nev" name="nev">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email">
+			<label for="password">Password:</label>
+			<input type="password" id="password" name="password">
+			
+			<button type="submit" id="register">Register</button>
+		</form>
+
+	</div>
+</div>
 	<script>
 		const sideNav = document.getElementById('sideNav');
-const hamburger = document.getElementById('hamburger');
+		const hamburger = document.getElementById('hamburger');
 
-hamburger.addEventListener('click', () => {
-    sideNav.classList.toggle('open');
-});
+		hamburger.addEventListener('click', () => {
+			sideNav.classList.toggle('open');
+		});
 
-document.addEventListener('click', (e) => {
-    if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
-        sideNav.classList.remove('open');
-    }
-});
-
-function showLoginModal() {
-    document.getElementById('loginModal').style.display = 'block';
+		document.addEventListener('click', (e) => {
+			if (!sideNav.contains(e.target) && !hamburger.contains(e.target)) {
+				sideNav.classList.remove('open');
+			}
+		});
+		function showLoginModal() {
+	document.getElementById('loginModal').style.display = 'block';
 }
 
 function closeLoginModal() {
-    document.getElementById('loginModal').style.display = 'none';
+	document.getElementById('loginModal').style.display = 'none';
 }
 
 function showRegisterModal() {
-    document.getElementById('registerModal').style.display = 'block';
+	document.getElementById('registerModal').style.display = 'block';
 }
 
 function closeRegisterModal() {
-    document.getElementById('registerModal').style.display = 'none';
+	document.getElementById('registerModal').style.display = 'none';
 }
-
 function showRegisterModal() {
-    closeLoginModal();
-    const registerModal = document.getElementById('registerModal');
-    registerModal.style.display = 'block';
+	closeLoginModal();
+	const registerModal = document.getElementById('registerModal');
+	registerModal.style.display = 'block';
 }
+// Close modals when clicking outside of them
 window.onclick = function (event) {
-    if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-    }
-};
-
+	if (event.target.classList.contains('modal')) {
+		event.target.style.display = 'none';
+	}
+}; </script>
+  
 		
 	</script>
 </body>

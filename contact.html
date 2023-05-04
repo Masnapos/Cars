@@ -113,13 +113,15 @@
 				<img id="image_border" src="image/border.png" alt="border">
 					<div class="contact-form">
 						<h1>Contact Us</h1>
+						<form method="post" action="email.php">
 							<div class="form-group group-coustume">
-								<input type="text" class="form-control name-form" placeholder="Name">
-								<input type="text" class="form-control email-form" placeholder="E-mail">
-								<input type="text" class="form-control subject-form" placeholder="Subject">
-								<textarea rows="4" cols="50" class="message-form"></textarea>
-								<button type="submit" class="btn btn-default btn-submit">Submit</button>
+								<input type="text" class="form-control name-form" placeholder="Name" name="name">
+								<input type="email" class="form-control email-form" placeholder="E-mail" name="email">
+								<input type="text" class="form-control subject-form" placeholder="Subject" name="subject">
+								<textarea rows="4" cols="50" class="message-form" name="text"></textarea>
+								<button type="submit" class="btn btn-default btn-submit" name="submit">Submit</button>
 							</div>
+							</form>
 					</div>
 			</div>
 			<div class="google-maps">

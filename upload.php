@@ -25,7 +25,7 @@ if (!isset($_SESSION['username'])) {
             <ul>
                 <li><a href="index.php">Home</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li><a href="upload.html">Upload images</a></li>
+                <li><a href="upload.php">Upload images</a></li>
                 <li><a href="#" onclick="showLoginModal()">Login</a></li>
             </ul>
         </div>

@@ -393,19 +393,6 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 	</div>
 </div>
 	<script>
-document.getElementById('postNewCarLink').addEventListener('click', function (event) {
-  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
-    event.preventDefault();
-    alert('You need to be logged in to post a new car.');
-  }
-});
-function checkLogin() {
-  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
-    event.preventDefault();
-    alert('You need to be logged in to post a new car.');
-  }
-}
-
 		const sideNav = document.getElementById('sideNav');
 		const hamburger = document.getElementById('hamburger');
 
@@ -444,11 +431,14 @@ window.onclick = function (event) {
 		event.target.style.display = 'none';
 	}
 }; 
-function checkUserLoggedIn() {
+async function checkUserLoggedIn() {
     <?php if (isset($_SESSION['username'])): ?>
       window.location.href = 'upload.html';
     <?php else: ?>
-      alert('You must be logged in to post a new car.');
+      await new Promise(resolve => {
+        alert('You must be logged in to post a new car.');
+        resolve();
+      });
       showLoginModal();
     <?php endif; ?>
   };

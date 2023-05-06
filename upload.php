@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header('Location: index.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -132,13 +140,7 @@ window.onclick = function (event) {
 	if (event.target.classList.contains('modal')) {
 		event.target.style.display = 'none';
 	}
-}; document.getElementById('postNewCarLink').addEventListener('click', function (event) {
-  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
-    event.preventDefault();
-    showLoginModal();
-  }
-});
-</script>
+}; </script>
   
 		
 	</script>

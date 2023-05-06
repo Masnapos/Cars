@@ -323,7 +323,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-			<li role="presentation"><a href="upload.html">POST NEW CAR</a></li>
+			<li role="presentation"><a href="upload.php">POST NEW CAR</a></li>
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>

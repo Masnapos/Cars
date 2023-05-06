@@ -234,6 +234,14 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     resize: vertical;
     min-height: 100px;
   }
+  .logged-in {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text color */
+    padding: 5px 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    margin-left: 5px; /* Add some space to the left */
+    margin-right: 5px;
+  }
   
   /*.contact-form button[type="submit"] {
     background-color: #4caf50;

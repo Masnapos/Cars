@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -30,9 +34,14 @@
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-				<li><a href="#" onclick="showLoginModal()">Login</a></li>
-				<li><a href="#" onclick="showRegisterModal()"><span class="register">Register</span></a></li>
-			</ul>
+  <?php if (isset($_SESSION['username'])): ?>
+    <li><a href="#" class="logged-in">Logged in as <?php echo $_SESSION['username']; ?></a></li>
+    <li><a href="logout.php">Logout</a></li>
+  <?php else: ?>
+    <li><a href="#" onclick="showLoginModal()">Login</a></li>
+    <li><a href="#" onclick="showRegisterModal()">Register</a></li>
+  <?php endif; ?>
+</ul>
 	</div>
 	<!-- Navbar Up -->
 	<nav class="topnavbar navbar-default topnav">

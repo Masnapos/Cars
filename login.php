@@ -25,17 +25,16 @@ if (isset($_POST['login'])) {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        
+        // Store username in session
+        $_SESSION['username'] = $username;
         
         header("Location: index.php");
     } else {
-        $_SESSION["login_error"] = "Invalid credentials!"; 
-         echo "nem mükszik";
+        $_SESSION["login_error"] = "Invalid credentials!";
+        echo "nem mükszik";
         //header("Location: index.php");
     }
-
-} 
-
+}
 
 $conn->close();
 ?>

@@ -445,7 +445,7 @@ function checkUserLoggedIn() {
   });
   function checkUserLoggedIn() {
     <?php if (isset($_SESSION['username'])): ?>
-      window.location.href = 'upload.html';
+      window.location.href = 'upload.php';
     <?php else: ?>
       document.getElementById('customAlert').style.display = 'block';
     <?php endif; ?>
@@ -459,6 +459,13 @@ function checkUserLoggedIn() {
     document.getElementById('customAlert').style.display = 'none';
     showLoginModal();
   });
+
+  // Close custom alert when clicking outside of it
+  window.onclick = function (event) {
+    if (event.target.classList.contains('custom-alert')) {
+      event.target.style.display = 'none';
+    }
+  };
   </script>
   
   <div class="custom-alert" id="customAlert">

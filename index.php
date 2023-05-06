@@ -81,7 +81,7 @@ session_start();
  
 				</li>
 				<li>
-				<a id="newcar" href="upload.html"><span class="postnewcar">
+				<a id="newcar" href="upload.php"><span class="postnewcar">
 				<button>POST NEW CAR</button></span></a></li>
 			</ul>
 		</div>

@@ -132,7 +132,13 @@ window.onclick = function (event) {
 	if (event.target.classList.contains('modal')) {
 		event.target.style.display = 'none';
 	}
-}; </script>
+}; document.getElementById('postNewCarLink').addEventListener('click', function (event) {
+  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
+    event.preventDefault();
+    showLoginModal();
+  }
+});
+</script>
   
 		
 	</script>

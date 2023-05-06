@@ -433,7 +433,7 @@ window.onclick = function (event) {
 }; 
 async function checkUserLoggedIn() {
     <?php if (isset($_SESSION['username'])): ?>
-      window.location.href = 'upload.html';
+      window.location.href = 'upload.php';
     <?php else: ?>
       await new Promise(resolve => {
         alert('You must be logged in to post a new car.');

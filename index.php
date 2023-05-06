@@ -452,6 +452,10 @@ function checkUserLoggedIn() {
 };
 
   </script>
+<div id="loginAlert" class="custom-alert">
+  <span class="alert-closebtn" onclick="closeLoginAlert()">&times;</span>
+  Please log in to post a new car.
+</div>
 
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>

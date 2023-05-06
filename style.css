@@ -240,7 +240,17 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     padding: 5px 10px; /* Padding around the text */
     border-radius: 5px; /* Rounded corners */
     margin-left: 5px; /* Add some space to the left */
-    margin-right: 5px;
+  }
+  .logout {
+    color: inherit; /* Inherit text color from parent */
+    text-decoration: none; /* Remove underline */
+    padding: 5px 10px; /* Add padding around the text */
+  }
+
+  .logout:hover {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text color */
+    border-radius: 5px; /* Rounded corners */
   }
   
   /*.contact-form button[type="submit"] {

@@ -34,14 +34,15 @@ session_start();
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-  <?php if (isset($_SESSION['username'])): ?>
-    <li><a href="#" class="logged-in">Logged in as <?php echo $_SESSION['username']; ?></a></li>
-    <li><a href="logout.php">Logout</a></li>
-  <?php else: ?>
-    <li><a href="#" onclick="showLoginModal()">Login</a></li>
-    <li><a href="#" onclick="showRegisterModal()">Register</a></li>
-  <?php endif; ?>
-</ul>
+  		<?php if (isset($_SESSION['username'])): ?>
+    		<li><a href="#" class="logged-in">Logged in as <?php echo $_SESSION['username']; ?></a></li>
+    		<li><a href="logout.php" class="logout">Logout</a></li>
+  		<?php else: ?>
+    		<li><a href="#" onclick="showLoginModal()">Login</a></li>
+    		<li><a href="#" onclick="showRegisterModal()">Register</a></li>
+  		<?php endif; ?>
+	</ul>
+
 	</div>
 	<!-- Navbar Up -->
 	<nav class="topnavbar navbar-default topnav">
@@ -322,7 +323,10 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-			<li role="presentation"><a href="upload.html">POST NEW CAR</a></li>
+			<<li role="presentation">
+  <a href="upload.html" id="postNewCarLink" onclick="postNewCarClick()">POST NEW CAR</a>
+</li>
+
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
@@ -429,7 +433,16 @@ window.onclick = function (event) {
 	if (event.target.classList.contains('modal')) {
 		event.target.style.display = 'none';
 	}
-}; </script>
+}; 
+function postNewCarClick() {
+  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
+    event.preventDefault();
+    showLoginModal();
+  }
+}
+
+
+</script>
   
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>

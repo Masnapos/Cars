@@ -337,6 +337,14 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 			<a href="#"><i class="fa fa-twitter"></i></a>
 			<a href="#"><i class="fa fa-google-plus"></i></a>
 			<a href="#"><i class="fa fa-pinterest"></i></a>
+			<div id="loginAlert" class="custom-alert">
+  <div class="alert-content">
+    <span class="alert-closebtn" onclick="closeLoginAlert()">&times;</span>
+    <h2>Please log in</h2>
+    <p>To post a new car, please log in.</p>
+  </div>
+</div>
+
 		</div>
 			<div class="footer">
 				<div class="copyright">
@@ -444,18 +452,18 @@ function checkUserLoggedIn() {
     showLoginModal();
   });
   function checkUserLoggedIn() {
-  <?php if (isset($_SESSION['username'])): ?>
-    window.location.href = 'upload.html';
+  <?php if (!isset($_SESSION['username'])): ?>
+    document.getElementById('loginAlert').style.display = 'block';
   <?php else: ?>
-    alert('Please log in to post a new car.');
+    window.location.href = 'upload.html';
   <?php endif; ?>
-};
+}
 
-  </script>
-<div id="loginAlert" class="custom-alert">
-  <span class="alert-closebtn" onclick="closeLoginAlert()">&times;</span>
-  Please log in to post a new car.
-</div>
+function closeLoginAlert() {
+  document.getElementById('loginAlert').style.display = 'none';
+}
+
+ 
 
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>

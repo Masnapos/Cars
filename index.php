@@ -323,10 +323,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-			<<li role="presentation">
-  <a href="upload.html" id="postNewCarLink" onclick="postNewCarClick()">POST NEW CAR</a>
-</li>
-
+			<li role="presentation"><a href="upload.html">POST NEW CAR</a></li>
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
@@ -433,16 +430,7 @@ window.onclick = function (event) {
 	if (event.target.classList.contains('modal')) {
 		event.target.style.display = 'none';
 	}
-}; 
-function postNewCarClick() {
-  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
-    event.preventDefault();
-    showLoginModal();
-  }
-}
-
-
-</script>
+}; </script>
   
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>

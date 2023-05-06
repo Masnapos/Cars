@@ -453,15 +453,26 @@ function checkUserLoggedIn() {
   });
   function checkUserLoggedIn() {
   <?php if (!isset($_SESSION['username'])): ?>
-    document.getElementById('loginAlert').style.display = 'block';
+    showLoginAlert();
   <?php else: ?>
     window.location.href = 'upload.html';
   <?php endif; ?>
 }
 
-function closeLoginAlert() {
-  document.getElementById('loginAlert').style.display = 'none';
+function showLoginAlert() {
+  const loginAlert = document.getElementById('loginAlert');
+  if (loginAlert) {
+    loginAlert.style.display = 'block';
+  }
 }
+
+function closeLoginAlert() {
+  const loginAlert = document.getElementById('loginAlert');
+  if (loginAlert) {
+    loginAlert.style.display = 'none';
+  }
+};
+</script>
 
  
 

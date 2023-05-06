@@ -399,6 +399,13 @@ document.getElementById('postNewCarLink').addEventListener('click', function (ev
     alert('You need to be logged in to post a new car.');
   }
 });
+function checkLogin() {
+  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
+    event.preventDefault();
+    alert('You need to be logged in to post a new car.');
+  }
+}
+
 		const sideNav = document.getElementById('sideNav');
 		const hamburger = document.getElementById('hamburger');
 

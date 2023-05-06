@@ -431,19 +431,24 @@ window.onclick = function (event) {
 		event.target.style.display = 'none';
 	}
 }; 
-async function checkUserLoggedIn() {
+function checkUserLoggedIn() {
     <?php if (isset($_SESSION['username'])): ?>
       window.location.href = 'upload.php';
     <?php else: ?>
-      await new Promise(resolve => {
-        alert('You must be logged in to post a new car.');
-        resolve();
-      });
-      showLoginModal();
+      document.getElementById('customAlert').style.display = 'block';
     <?php endif; ?>
-  };
+  }
+
+  document.getElementById('alertCloseBtn').addEventListener('click', function () {
+    document.getElementById('customAlert').style.display = 'none';
+    showLoginModal();
+  });
   </script>
   
+  <div class="custom-alert" id="customAlert">
+  You must be logged in to post a new car.
+  <button id="alertCloseBtn" style="margin-top: 10px;">Close</button>
+</div>
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>

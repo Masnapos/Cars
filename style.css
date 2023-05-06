@@ -252,6 +252,20 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     color: white; /* White text color */
     border-radius: 5px; /* Rounded corners */
   }
+  .custom-alert {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    font-size: 16px;
+  }
   
   /*.contact-form button[type="submit"] {
     background-color: #4caf50;

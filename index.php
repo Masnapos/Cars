@@ -323,7 +323,9 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-			<li role="presentation"><a href="#" onclick="checkUserLoggedIn()">POST NEW CAR</a></li>
+			<li role="presentation">
+  <a href="upload.html" id="postNewCarLink" onclick="checkUserLoggedIn(event)">POST NEW CAR</a>
+</li>
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
@@ -380,6 +382,13 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		</div>
 	</div>
 	
+<!-- Custom Alert -->
+<div id="customAlert" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeCustomAlert()">&times;</span>
+    <h2>Please log in to post a new car</h2>
+  </div>
+</div>
 
 <!-- Register Modal -->
 <div id="registerModal" class="modal">
@@ -451,32 +460,22 @@ function checkUserLoggedIn() {
     document.getElementById('customAlert').style.display = 'none';
     showLoginModal();
   });
-  function checkUserLoggedIn() {
-  <?php if (!isset($_SESSION['username'])): ?>
-    showLoginAlert();
-  <?php else: ?>
-    window.location.href = 'upload.html';
-  <?php endif; ?>
-}
+  function showCustomAlert() {
+  document.getElementById('customAlert').style.display = 'block';
+};
 
-function showLoginAlert() {
-  const loginAlert = document.getElementById('loginAlert');
-  if (loginAlert) {
-    loginAlert.style.display = 'block';
-  }
-}
+function closeCustomAlert() {
+  document.getElementById('customAlert').style.display = 'none';
+};
 
-function closeLoginAlert() {
-  const loginAlert = document.getElementById('loginAlert');
-  if (loginAlert) {
-    loginAlert.style.display = 'none';
+function checkUserLoggedIn(event) {
+  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
+    event.preventDefault();
+    showCustomAlert();
   }
 };
-</script>
 
- 
-
-
+  </script>
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>
 <script type="text/javascript" src="source/js/myscript.js"></script> 

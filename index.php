@@ -323,7 +323,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-			<li role="presentation"><a href="javascript:void(0)" id="postNewCarLink" onclick="checkUserLoggedIn()">POST NEW CAR</a></li>
+			<li role="presentation"><a href="#" onclick="checkUserLoggedIn()">POST NEW CAR</a></li>
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
@@ -443,6 +443,13 @@ function checkUserLoggedIn() {
     document.getElementById('customAlert').style.display = 'none';
     showLoginModal();
   });
+  function checkUserLoggedIn() {
+  <?php if (isset($_SESSION['username'])): ?>
+    window.location.href = 'upload.html';
+  <?php else: ?>
+    alert('Please log in to post a new car.');
+  <?php endif; ?>
+};
 
   </script>
 

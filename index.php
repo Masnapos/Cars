@@ -443,43 +443,9 @@ function checkUserLoggedIn() {
     document.getElementById('customAlert').style.display = 'none';
     showLoginModal();
   });
-  function checkUserLoggedIn() {
-    <?php if (isset($_SESSION['username'])): ?>
-      window.location.href = 'upload.php';
-    <?php else: ?>
-      document.getElementById('customAlert').style.display = 'block';
-    <?php endif; ?>
-  }
 
-  document.getElementById('alertCloseBtn').addEventListener('click', function () {
-    document.getElementById('customAlert').style.display = 'none';
-  });
-
-  document.getElementById('alertLoginBtn').addEventListener('click', function () {
-    document.getElementById('customAlert').style.display = 'none';
-    showLoginModal();
-  });
-
-  // Close custom alert when clicking outside of it
-  window.onclick = function (event) {
-    if (event.target.classList.contains('custom-alert')) {
-      event.target.style.display = 'none';
-    }
-  };
   </script>
-  
-  <div class="custom-alert" id="customAlert">
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close" id="alertCloseBtn">&times;</span>
-      <h2>Alert</h2>
-    </div>
-    <div class="modal-body">
-      <p>You must be logged in to post a new car.</p>
-      <button id="alertLoginBtn" style="margin-top: 10px;">Login</button>
-    </div>
-  </div>
-</div>
+
 
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>

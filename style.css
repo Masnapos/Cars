@@ -252,35 +252,6 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     color: white; /* White text color */
     border-radius: 5px; /* Rounded corners */
   }
-  .custom-alert {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 50%;
-    top: 10%;
-    transform: translate(-50%, 0);
-    background-color: #f44336;
-    color: white;
-    border-radius: 5px;
-  }
-  
-  .alert-content {
-    padding: 20px;
-  }
-  
-  .alert-closebtn {
-    position: absolute;
-    top: 4px;
-    right: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  .centered-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+
   
   

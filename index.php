@@ -16,7 +16,8 @@ session_start();
 	<link rel="stylesheet" type="text/css" href="slider.css">
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-	
+</head>
+
 	
 	
 </head>

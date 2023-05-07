@@ -276,7 +276,11 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     font-weight: bold;
     cursor: pointer;
   }
-  .presentation{
-    text-align: center;
+  .centered-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
+  
   

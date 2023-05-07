@@ -329,13 +329,14 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		<span class="dotlogo">&bullet;</span><img src="image/collectionlogo1.png" alt="logo1"><span class="dotlogo">&bullet;;</span>
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
-    <li class="centered-items" role="presentation"><a href="#/" role="button">ABOUT US</a></li>
-    <li class="centered-items" role="presentation"><a href="upload.php" id="postNewCarLink">POST NEW CAR</a></li>
-    <li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
-    <li class="centered-items" role="presentation"><a href="contact.html">CONTACT US</a></li>
-    <li class="centered-items" role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
-</ul>
-
+			<li class="ab" role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
+			<li role="presentation">
+  			<a href="upload.php" id="postNewCarLink">POST NEW CAR</a></li>
+			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
+			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
+			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
+			
+		</ul>
 		
 		<p>"Lorem ipsum dolor sit amet, consectetur,  sed do eiusmod tempor incididunt <br>
 			eiusmod tempor incididunt </p>

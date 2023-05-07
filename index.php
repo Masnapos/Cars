@@ -326,6 +326,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 			<li role="presentation">
   <a href="upload.php" id="postNewCarLink" onclick="checkUserLoggedIn(event)">POST NEW CAR</a>
 </li>
+
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
@@ -451,10 +452,7 @@ function checkUserLoggedIn() {
     <?php endif; ?>
   }
 
-  document.getElementById('alertCloseBtn').addEventListener('click', function () {
-    document.getElementById('customAlert').style.display = 'none';
-    showLoginModal();
-  });
+  
   function showCustomAlert() {
   document.getElementById('customAlert').style.display = 'block';
 }
@@ -469,6 +467,13 @@ function checkUserLoggedIn(event) {
     showCustomAlert();
   }
 }
+
+window.onclick = function (event) {
+  if (event.target.classList.contains('modal')) {
+    event.target.style.display = 'none';
+  }
+};
+
 
 
   </script>

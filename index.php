@@ -31,7 +31,8 @@ session_start();
 				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<ul class="givusacall">
-				<li>Give us a call : <?php
+				<li>Give us a call : +66666666
+				<?php
 if (isset($_SESSION['error'])) {
     echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
     unset($_SESSION['error']);

@@ -31,7 +31,13 @@ session_start();
 				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<ul class="givusacall">
-				<li>Give us a call : +66666666 </li>
+				<li>Give us a call : <?php
+if (isset($_SESSION['error'])) {
+    echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+    unset($_SESSION['error']);
+}
+?>
+ </li>
 			</ul>
 			<ul class="logreg">
   		<?php if (isset($_SESSION['username'])): ?>
@@ -324,9 +330,8 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		<ul class="nav nav-tabs bottomlinks">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
 			<li role="presentation">
-  <a href="upload.php" id="postNewCarLink" onclick="checkUserLoggedIn(event)">POST NEW CAR</a>
+  <a href="upload.php" id="postNewCarLink">POST NEW CAR</a>
 </li>
-
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>

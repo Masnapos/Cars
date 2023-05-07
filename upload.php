@@ -1,5 +1,8 @@
 <?php
+session_start();
+
 if (!isset($_SESSION['username'])) {
+    $_SESSION['error'] = "Please log in to post a new car.";
     header("Location: index.php");
     exit;
 }

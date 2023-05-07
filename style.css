@@ -252,8 +252,16 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     color: white; /* White text color */
     border-radius: 5px; /* Rounded corners */
   }
-.about{
- padding-left:  1000px;
+  .bottomlinks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
+
+.bottomlinks .centered-items {
+    flex: 1;
+    text-align: center;
+}
+
   
   

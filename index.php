@@ -340,12 +340,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 			<a href="#"><i class="fa fa-google-plus"></i></a>
 			<a href="#"><i class="fa fa-pinterest"></i></a>
 			<div id="loginAlert" class="custom-alert">
-  <div class="alert-content">
-    <span class="alert-closebtn" onclick="closeLoginAlert()">&times;</span>
-    <h2>Please log in</h2>
-    <p>To post a new car, please log in.</p>
-  </div>
-</div>
+
 
 		</div>
 			<div class="footer">

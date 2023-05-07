@@ -252,6 +252,8 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
     color: white; /* White text color */
     border-radius: 5px; /* Rounded corners */
   }
-
+.center{
+  margin-left: 10px;
+}
   
   

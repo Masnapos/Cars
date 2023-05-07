@@ -325,10 +325,11 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 	<!-- ______________________________________________________Bottom Menu ______________________________-->
 	<br>
 	<div class="bottommenu">
-		<div class="bottomlogo">
-		<span class="dotlogo">&bullet;</span><img src="image/collectionlogo1.png" alt="logo1"><span class="dotlogo">&bullet;;</span>
-		</div>
-		<ul class="nav nav-tabs bottomlinks">
+    <div class="bottomlogo">
+        <span class="dotlogo">&bullet;</span><img src="image/collectionlogo1.png" alt="logo1"><span class="dotlogo">&bullet;;</span>
+    </div>
+    <ul class="nav nav-tabs bottomlinks">
+        <div class="about-us-wrapper">
 			<li role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
 			<li role="presentation">
   <a href="upload.php" id="postNewCarLink">POST NEW CAR</a>
@@ -338,7 +339,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
 			
 		</ul>
-		
+</div>
 		<p>"Lorem ipsum dolor sit amet, consectetur,  sed do eiusmod tempor incididunt <br>
 			eiusmod tempor incididunt </p>
 		 <img src="image/line.png" alt="line"> <br>

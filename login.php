@@ -31,8 +31,7 @@ if (isset($_POST['login'])) {
         header("Location: index.php");
     } else {
         $_SESSION["login_error"] = "Invalid credentials!";
-        echo "nem mükszik";
-        //header("Location: index.php");
+        header("Location: index.php");
     }
 }
 

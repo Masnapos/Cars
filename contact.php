@@ -246,7 +246,30 @@ window.onclick = function (event) {
 if (event.target.classList.contains('modal')) {
 	event.target.style.display = 'none';
 }
-};  </script>
+};  
+function checkUserLoggedIn() {
+    <?php if (isset($_SESSION['username'])): ?>
+      window.location.href = 'upload.php';
+    <?php else: ?>
+      document.getElementById('customAlert').style.display = 'block';
+    <?php endif; ?>
+  }
+
+  
+  function showCustomAlert() {
+  document.getElementById('customAlert').style.display = 'block';
+}
+
+function closeCustomAlert() {
+  document.getElementById('customAlert').style.display = 'none';
+}
+
+function checkUserLoggedIn(event) {
+  if (!<?php echo isset($_SESSION['username']) ? 'true' : 'false' ?>) {
+    event.preventDefault();
+    showCustomAlert();
+  }
+}</script>
 
 
  

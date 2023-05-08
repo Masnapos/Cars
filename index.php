@@ -6,7 +6,7 @@ session_start();
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Scarica gratis GARAGE Template html/css - Web Domus Italia - Web Agency </title>
+	<title>Used Cars</title>
 	<meta name="description" content="Scarica gratis il nostro Template HTML/CSS GARAGE. Se avete bisogno di un design per il vostro sito web GARAGE può fare per voi. Web Domus Italia">
 	<meta name="author" content="Web Domus Italia">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -26,13 +26,13 @@ session_start();
 <div class="allcontain">
 	<div class="header">
 			<ul class="socialicon">
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
 				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+				<li><a href="https://hu.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<ul class="givusacall">
-				<li>Give us a call : +66666666
+				<li>Give us a call : +36701234567
 				<?php
 if (isset($_SESSION['error'])) {
     echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
@@ -144,7 +144,7 @@ if (isset($_SESSION['error'])) {
 			<div class="item">
 				<img src="image/porche.jpg" alt="porche">
 				<div class="carousel-caption">
-					<h2>Porche</h2>
+					<h2>Porsche</h2>
 						<p>Lorem ipsum dolor sit amet, consectetur ,<br>
 						sed do eiusmod tempor incididunt ut labore </p>
 				</div>
@@ -362,23 +362,22 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		<span class="dotlogo">&bullet;</span><img src="image/collectionlogo1.png" alt="logo1"><span class="dotlogo">&bullet;;</span>
 		</div>
 		<ul class="nav nav-tabs bottomlinks">
-			<li class="ab" role="presentation" ><a href="#/" role="button">ABOUT US</a></li>
-			<li role="presentation">
-  			<a href="upload.php" id="postNewCarLink">POST NEW CAR</a></li>
+			<li class="ab" role="presentation" ><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
+			
+			<li role="presentation"><a href="upload.php" id="postNewCarLink">POST NEW CAR</a></li>
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.php">CONTACT US</a></li>
-			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
+			
 			
 		</ul>
 		
-		<p>"Lorem ipsum dolor sit amet, consectetur,  sed do eiusmod tempor incididunt <br>
-			eiusmod tempor incididunt </p>
+		<p>We have the best used cars on the market! </p>
 		 <img src="image/line.png" alt="line"> <br>
 		 <div class="bottomsocial">
-		 	<a href="#"><i class="fa fa-facebook"></i></a>
-			<a href="#"><i class="fa fa-twitter"></i></a>
+		 	<a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+			<a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
 			<a href="#"><i class="fa fa-google-plus"></i></a>
-			<a href="#"><i class="fa fa-pinterest"></i></a>
+			<a href="https://hu.pinterest.com/"><i class="fa fa-pinterest"></i></a>
 			<div id="loginAlert" class="custom-alert">
 
 

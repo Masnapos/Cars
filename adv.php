@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Scarica gratis GARAGE Template html/css - Web Domus Italia - Web Agency </title>
+	<title>Used Cars </title>
 	<meta name="description" content="Scarica gratis il nostro Template HTML/CSS GARAGE. Se avete bisogno di un design per il vostro sito web GARAGE può fare per voi. Web Domus Italia">
 	<meta name="author" content="Web Domus Italia">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -19,13 +19,13 @@
 <div class="allcontain">
 	<div class="header">
 			<ul class="socialicon">
-				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+			<li><a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="https://twitter.com/"><i class="fa fa-twitter"></i></a></li>
 				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-				<li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+				<li><a href="https://hu.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
 			<ul class="givusacall">
-				<li>Give us a call : +36112233445 </li>
+				<li>Give us a call : +361234567 </li>
 			</ul>
 			<ul class="logreg">
 				<li><a href="#" onclick="showLoginModal()" >Login </a> </li>

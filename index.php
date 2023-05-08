@@ -39,6 +39,13 @@ if (isset($_SESSION['error'])) {
     unset($_SESSION['error']);
 }
 ?>
+<?php if (isset($_SESSION['login_error'])): ?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $_SESSION['login_error']; ?>
+    </div>
+    <?php unset($_SESSION['login_error']); ?>
+<?php endif; ?>
+
  </li>
 			</ul>
 			<ul class="logreg">

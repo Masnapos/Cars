@@ -18,5 +18,6 @@ echo $_POST['text'];
 
 
 ?>
+
 </body>
 </html>

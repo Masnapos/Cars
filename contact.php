@@ -32,16 +32,13 @@ session_start();
 				<li>Give us a call : +66666666 </li>
 			</ul>
 			<ul class="logreg">
-			<li role="presentation">
-        <?php
-        if (isset($_SESSION['username'])) {
-          echo "Logged in as " . $_SESSION['username'];
-        } else {
-          echo '<a href="#" onclick="showLoginModal()">LOGIN</a>';
-        }
-        ?>
-      </li>
-				<li><a href="#" onclick="showRegisterModal()"><span class="register">Register</span></a></li>
+			<?php if (isset($_SESSION['username'])): ?>
+    		<li><a href="#" class="logged-in">Logged in as <?php echo $_SESSION['username']; ?></a></li>
+    		<li><a href="logout.php" class="logout">Logout</a></li>
+  		<?php else: ?>
+    		<li><a href="#" onclick="showLoginModal()">Login</a></li>
+    		<li><a href="#" onclick="showRegisterModal()">Register</a></li>
+  		<?php endif; ?>
 			</ul>
 	</div>
 	<!-- Navbar Up -->

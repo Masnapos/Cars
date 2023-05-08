@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+ <script type="text/javascript">
+ function drawShape(){
+ var canvas = document.getElementById('mycanvas');
+ if (canvas.getContext){
+ var ctx = canvas.getContext('2d');
+
+ var img = new Image();
+ img.src = 'image/backdrop.jpg';
+ img.onload = function(){
+
+ ctx.drawImage(img,0,0);
+ ctx.beginPath();
+ ctx.moveTo(30,96);
+
+
+ ctx.lineTo(70,66);
+ ctx.lineTo(103,76);
+ ctx.lineTo(170,15);
+ ctx.stroke();
+ }
+ }
+ else
+ alert('Your browser doesn\'t support canvas!');
+ }
+ </script>
+ </head>
+ <body onload="drawShape();">
+ <canvas id="mycanvas"></canvas>
+ </body>
+</html>

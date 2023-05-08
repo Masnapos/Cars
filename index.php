@@ -77,11 +77,23 @@ if (isset($_SESSION['error'])) {
 					</ul>
 				</li>
 				<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DEALERS <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REQUIREMENTS <span class="caret"></span></a>
 						<ul class="dropdown-menu dropdowncostume">
 							<li><a href="dealer1.html">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="3">3</a></li>
+							<li><a href="canvas.html">Canvas</a></li>
+							<li><a href="geo.html">Geolocation</a></li>
+							<li><a href="svg.html">SVG</a></li>
+							<li><a href="dada.html">Drag and drop API</a></li>
+							<li><a href="geo.html">Cookies</a></li>
+							<li><a href="geo.html">Sending emails</a></li>
+							<li><a href="geo.html">Web Storage</a></li>
+							<li><a href="geo.html">Session Storage</a></li>
+							<li><a href="geo.html">Local Storage</a></li>
+							<li><a href="geo.html">Web Workers</a></li>
+							<li><a href="sse.html">Server Sent Events</a></li>
+							<li><a href="geo.html">Sass</a></li>
+							
+							
 						</ul>
 				</li>
 				<li>

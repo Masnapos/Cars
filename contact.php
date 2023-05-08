@@ -33,13 +33,14 @@ session_start();
 			</ul>
 			<ul class="logreg">
 			<li role="presentation">
-    <?php
-    if (isset($_SESSION['username'])) {
-        echo "Logged in as " . $_SESSION['username'] . ' - <a href="logout.php">LOGOUT</a>';
-    } else {
-        echo '<a href="#" onclick="showLoginModal()">LOGIN</a>';
-    }
-    ?>
+			<?php
+        if (isset($_SESSION['username'])) {
+            echo "Logged in as " . $_SESSION['username'] . ' - <a href="logout.php">LOGOUT</a>';
+        } else {
+            echo '<a href="#" onclick="showLoginModal()">LOGIN</a>';
+        }
+        ?>
+        </li>
 </li>
 
 				<li><a href="#" onclick="showRegisterModal()"><span class="register">Register</span></a></li>

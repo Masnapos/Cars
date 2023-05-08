@@ -45,6 +45,19 @@ if (isset($_SESSION['error'])) {
     </div>
     <?php unset($_SESSION['login_error']); ?>
 <?php endif; ?>
+<?php if (isset($_SESSION['register_error'])): ?>
+    <div class="alert alert-danger" role="alert">
+        <?php echo $_SESSION['register_error']; ?>
+    </div>
+    <?php unset($_SESSION['register_error']); ?>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['register_success'])): ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $_SESSION['register_success']; ?>
+    </div>
+    <?php unset($_SESSION['register_success']); ?>
+<?php endif; ?>
 
  </li>
 			</ul>

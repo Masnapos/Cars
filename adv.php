@@ -59,9 +59,17 @@
 				<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DEALERS <span class="caret"></span></a>
 						<ul class="dropdown-menu dropdowncostume">
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="3">3</a></li>
+						<li><a href="canvas.html">Canvas</a></li>
+							<li><a href="geo.html">Geolocation</a></li>
+							<li><a href="svg.html">SVG</a></li>
+							<li><a href="dada.html">Drag and drop API</a></li>
+							<li><a href="cooki.php">Cookies</a></li>
+							<li><a href="mail.php">Sending emails</a></li>
+						
+							<li><a href="ss.html">Session Storage</a></li>
+							<li><a href="ls.html">Local Storage</a></li>
+							<li><a href="ww.html">Web Workers</a></li>
+							<li><a href="sse.html">Server Sent Events</a></li>
 						</ul>
 				</li>
 				<li class="dropdown">
@@ -132,7 +140,7 @@ if (mysqli_num_rows($result) > 0) {
   
   while ($row = mysqli_fetch_assoc($result)) {
     echo "<div>";
-    echo $row['image'];
+   
     echo "<img src='img/$row[image]'" . "' alt='" . $row['brand'] . " " . $row['model'] . "'>";
     echo "<h2>" . $row['brand'] . " " . $row['model'] . "</h2>";
     echo "<p>Displacement: " . $row['displacement'] . " cc</p>";

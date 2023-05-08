@@ -84,14 +84,14 @@ if (isset($_SESSION['error'])) {
 							<li><a href="geo.html">Geolocation</a></li>
 							<li><a href="svg.html">SVG</a></li>
 							<li><a href="dada.html">Drag and drop API</a></li>
-							<li><a href="geo.html">Cookies</a></li>
-							<li><a href="geo.html">Sending emails</a></li>
-							<li><a href="geo.html">Web Storage</a></li>
-							<li><a href="geo.html">Session Storage</a></li>
-							<li><a href="geo.html">Local Storage</a></li>
-							<li><a href="geo.html">Web Workers</a></li>
+							<li><a href="cooki.php">Cookies</a></li>
+							<li><a href="mail.php">Sending emails</a></li>
+						
+							<li><a href="ss.html">Session Storage</a></li>
+							<li><a href="ls.html">Local Storage</a></li>
+							<li><a href="ww.html">Web Workers</a></li>
 							<li><a href="sse.html">Server Sent Events</a></li>
-							<li><a href="geo.html">Sass</a></li>
+							
 							
 							
 						</ul>

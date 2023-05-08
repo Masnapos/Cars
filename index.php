@@ -117,7 +117,7 @@ if (isset($_SESSION['error'])) {
 						</ul>
 				</li>
 				<li>
-					<a href="contact.html">CONTACT</a>
+					<a href="contact.php">CONTACT</a>
  
 				</li>
 				<li>
@@ -366,7 +366,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 			<li role="presentation">
   			<a href="upload.php" id="postNewCarLink">POST NEW CAR</a></li>
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
-			<li role="presentation"><a href="contact.html">CONTACT US</a></li>
+			<li role="presentation"><a href="contact.php">CONTACT US</a></li>
 			<li role="presentation"><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
 			
 		</ul>

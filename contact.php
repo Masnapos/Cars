@@ -33,16 +33,14 @@ session_start();
 			</ul>
 			<ul class="logreg">
 			<li role="presentation">
-			<?php
+        <?php
         if (isset($_SESSION['username'])) {
-            echo "Logged in as " . $_SESSION['username'] . ' - <a href="logout.php">LOGOUT</a>';
+          echo "Logged in as " . $_SESSION['username'];
         } else {
-            echo '<a href="#" onclick="showLoginModal()">LOGIN</a>';
+          echo '<a href="#" onclick="showLoginModal()">LOGIN</a>';
         }
         ?>
-        </li>
-</li>
-
+      </li>
 				<li><a href="#" onclick="showRegisterModal()"><span class="register">Register</span></a></li>
 			</ul>
 	</div>
@@ -248,14 +246,7 @@ window.onclick = function (event) {
 if (event.target.classList.contains('modal')) {
 	event.target.style.display = 'none';
 }
-};  <?php
-session_start();
-if (isset($_SESSION['username'])) {
-    unset($_SESSION['username']);
-}
-header("Location: index.php");
-?>
-</script>
+};  </script>
 
 
  

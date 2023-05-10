@@ -99,24 +99,24 @@ session_start();
 				<img src="image/oldcar.jpg" alt="oldcar">
 				<div class="carousel-caption">
 					<h2>Porsche 356</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 			<div class="item">
 				<img src="image/porche.jpg" alt="porche">
 				<div class="carousel-caption">
 					<h2>Porche</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 			<div class="item">
 				<img src="image/benz.jpg" alt="benz">
 				<div class="carousel-caption">
-					<h2>Car</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<h2>Mercedes</h2>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 		</div>

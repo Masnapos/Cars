@@ -137,24 +137,24 @@ if (isset($_SESSION['error'])) {
 				<img src="image/oldcar.jpg" alt="oldcar">
 				<div class="carousel-caption">
 					<h2>Porsche 356</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 			<div class="item">
 				<img src="image/porche.jpg" alt="porche">
 				<div class="carousel-caption">
 					<h2>Porsche</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+						<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 			<div class="item">
 				<img src="image/benz.jpg" alt="benz">
 				<div class="carousel-caption">
-					<h2>Car</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<h2>Mercedes</h2>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 		</div>
@@ -251,17 +251,15 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
 						<div class="featurecontant">
 							<h1>Porsche</h1>
-							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt </p>
-			 				<h2>Price &euro;</h2>
+							<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
+			 				<h2>Price: 8000 &euro;</h2>
 			 				<button id="btnRM" onclick="rmtxt()">READ MORE</button>
 			 				<div id="readmore">
-			 						<h1>Car Name</h1>
-			 						<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt <br>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1 ,
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1
-			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1<br>
+			 						<h1>Porsche</h1>
+			 						<p>"A great classic car with beauty and power
+						 like the new generations of cars ,<br>
+			 						Anything, Something<br>
 			 						</p>
 			 						<button id="btnRL">READ LESS</button>
 			 				</div>
@@ -277,12 +275,12 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 txt1colon ">
 						<div class="featurecontant">
 							<h1>Porsche</h1>
-							<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
-			 						sed do eiusmod tempor incididunt </p>
-			 				<h2>Price &euro;</h2>
+							<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
+			 				<h2>Price: 9000 &euro;</h2>
 			 				<button id="btnRM2">READ MORE</button>
 			 				<div id="readmore2">
-			 						<h1>Car Name</h1>
+			 						<h1>Porsche</h1>
 			 						<p>"Lorem ipsum dolor sit amet, consectetur ,<br>
 			 						sed do eiusmod tempor incididunt <br>"Lorem ipsum dolor sit amet, consectetur ,<br>
 			 						sed do eiusmod tempor incididunt"Lorem ipsum dolor sit amet, consectetur1 ,

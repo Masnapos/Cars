@@ -4,8 +4,8 @@
 
  try {
  
- $dbh = new PDO('mysql:host=localhost;dbname=cars', 'root', 
-'',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+ $dbh = new PDO('mysql:host=localhost;dbname=cars', 'cars', 
+'usedcarssql1234',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
  $dbh->query('SET NAMES utf8 COLLATE utf8_general_ci');
  

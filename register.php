@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['nev']) && isset($_POST['password']) && isset($_POST['email'])) {
     try {
-        $dbh = new PDO('mysql:host=localhost;dbname=cars', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+        $dbh = new PDO('mysql:host=localhost;dbname=cars', 'cars', 'usedcarssql1234', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         $dbh->query('SET NAMES utf8 COLLATE utf8_general_ci');
 
         $sqlSelect = "SELECT id FROM users WHERE nev = :nev";

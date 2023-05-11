@@ -1,8 +1,8 @@
 <?php
 // Database credentials
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "cars";
+$password = "usedcarssql1234";
 $dbname = "cars";
 $FOLDER ='./img/';
 

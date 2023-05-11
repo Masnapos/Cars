@@ -199,8 +199,8 @@ if (isset($_SESSION['error'])) {
 <?php
     try {
 
-	$pdo = new PDO('mysql:host=localhost;dbname=cars', 'root', 
-  '',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
+	$pdo = new PDO('mysql:host=localhost;dbname=cars', 'cars', 
+  'usedcarssql1234',array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
   $pdo->query('SET NAMES utf8 COLLATE utf8_general_ci');
   $statement = "Select brand, model, p_date, price, text, image From cars";
   $result = $pdo->query($statement);

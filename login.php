@@ -3,8 +3,8 @@ session_start();
 
 // Replace with your own database connection details
 $db_host = 'localhost';
-$db_user = 'root';
-$db_pass = '';
+$db_user = 'cars';
+$db_pass = 'usedcarssql1234';
 $db_name = 'cars';
 
 $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);

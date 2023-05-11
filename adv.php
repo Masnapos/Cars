@@ -124,7 +124,7 @@ $var_value = $_GET['varname'];
 
 
 
-	$conn = mysqli_connect("localhost", "root", "", "cars");
+	$conn = mysqli_connect("localhost", "cars", "usedcarssql1234", "cars");
 
 // Check connection
 if (!$conn) {

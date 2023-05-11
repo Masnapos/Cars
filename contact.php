@@ -66,7 +66,7 @@ session_start();
 					</ul>
 				</li>
 				<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DEALERS <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REQUIREMENTS <span class="caret"></span></a>
 						<ul class="dropdown-menu dropdowncostume">
 							<li><a href="canvas.html">Canvas</a></li>
 							<li><a href="geo.html">Geolocation</a></li>

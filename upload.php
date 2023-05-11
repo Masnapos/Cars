@@ -27,7 +27,7 @@ if (!isset($_SESSION['username'])) {
         <div class="side-nav" id="sideNav">
             <ul>
                 <li><a href="index.php">Home</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.php">Contact</a></li>
                 <li><a href="upload.php">Upload images</a></li>
                 <li><a href="#" onclick="showLoginModal()">Login</a></li>
             </ul>

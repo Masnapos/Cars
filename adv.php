@@ -57,7 +57,7 @@
 					</ul>
 				</li>
 				<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DEALERS <span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REQUIREMENTS<span class="caret"></span></a>
 						<ul class="dropdown-menu dropdowncostume">
 						<li><a href="canvas.html">Canvas</a></li>
 							<li><a href="geo.html">Geolocation</a></li>
@@ -73,10 +73,10 @@
 						</ul>
 				</li>
 				<li class="dropdown">
-					<a href="contact.html"  >CONTACT </a>
+					<a href="contact.php"  >CONTACT </a>
 				</li>
 				<li>
-				<a id="newcar" href="upload.html"><span class="postnewcar">
+				<a id="newcar" href="upload.php"><span class="postnewcar">
 					<button>POST NEW CAR</button></span></a></li>
 			</ul>
 		</div>
@@ -90,24 +90,24 @@
 				<img src="image/oldcar.jpg" alt="oldcar">
 				<div class="carousel-caption">
 					<h2>Porsche 356</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 			<div class="item">
 				<img src="image/porche.jpg" alt="porche">
 				<div class="carousel-caption">
 					<h2>Porche</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 			<div class="item">
 				<img src="image/benz.jpg" alt="benz">
 				<div class="carousel-caption">
-					<h2>Car</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur ,<br>
-						sed do eiusmod tempor incididunt ut labore </p>
+					<h2>Mercedes</h2>
+					<p>A great classic car with beauty and power<br>
+						 like the new generations of cars</p>
 				</div>
 			</div>
 		</div>
@@ -141,7 +141,7 @@ if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
     echo "<div>";
    
-    echo "<img src='img/$row[image]'" . "' alt='" . $row['brand'] . " " . $row['model'] . "'>";
+    echo "<img src='img/$row[image]'" ."'width=200px'". "' alt='" . $row['brand'] . " " . $row['model'] . "'>";
     echo "<h2>" . $row['brand'] . " " . $row['model'] . "</h2>";
     echo "<p>Displacement: " . $row['displacement'] . " cc</p>";
     echo "<p>Production date: " . $row['p_date'] . "</p>";

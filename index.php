@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+$allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html']; // Add all allowed pages here
+
+$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'default.html';
+
+ob_start(); // Start output buffering
+include($page);
+$page_content = ob_get_clean(); // Get the content of the included file
 ?>
 
 <!doctype html>
@@ -71,62 +79,44 @@ if (isset($_SESSION['error'])) {
   		<?php endif; ?>
 	</ul>
 
-	</div>
-	<!-- Navbar Up -->
-	<nav class="topnavbar navbar-default topnav">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed toggle-costume" data-toggle="collapse" data-target="#upmenu" aria-expanded="false">
-                <span class="sr-only"> Toggle navigaion</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand logo" href="#"><img src="image/logo1.png" alt="logo"></a>
-        </div>     
-    </div>
-    <div class="collapse navbar-collapse" id="upmenu">
+	<div class="collapse navbar-collapse" id="upmenu">
+    <?php
+    $string = file_get_contents("menu.json");
+    $config = json_decode($string, true);
+    ?>
 
-        <?php
-        $string = file_get_contents("menu.json");
-        $config = json_decode($string, true);
-        ?>
-
-        <ul class="nav navbar-nav" id="navbarontop">
-            <?php foreach($config['menu'] as $menuItem): ?>
-                <?php if(isset($menuItem['submenu'])): ?>
-                    <li class="dropdown">
-                        <a href="<?php echo $menuItem['link']; ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <?php echo $menuItem['name']; ?> <span class="caret"></span>
+    <ul class="nav navbar-nav" id="navbarontop">
+        <?php foreach($config['menu'] as $menuItem): ?>
+            <?php if(isset($menuItem['submenu'])): ?>
+                <li class="dropdown">
+                    <a href="index.php?page=<?php echo $menuItem['link']; ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <?php echo $menuItem['name']; ?> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdowncostume">
+                        <?php foreach($menuItem['submenu'] as $submenuItem): ?>
+                            <li><a href="index.php?page=<?php echo $submenuItem['link']; ?>"><?php echo $submenuItem['name']; ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
+            <?php else: ?>
+                <li>
+                    <?php if(isset($menuItem['button']) && $menuItem['button']): ?>
+                        <a id="<?php echo $menuItem['id']; ?>" href="index.php?page=<?php echo $menuItem['link']; ?>">
+                            <span class="postnewcar"><button><?php echo $menuItem['name']; ?></button></span>
                         </a>
-                        <ul class="dropdown-menu dropdowncostume">
-                            <?php foreach($menuItem['submenu'] as $submenuItem): ?>
-                                <li><a href="<?php echo $submenuItem['link']; ?>"><?php echo $submenuItem['name']; ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </li>
-                <?php else: ?>
-                    <li>
-                        <?php if(isset($menuItem['button']) && $menuItem['button']): ?>
-                            <a id="<?php echo $menuItem['id']; ?>" href="<?php echo $menuItem['link']; ?>">
-                                <span class="postnewcar"><button><?php echo $menuItem['name']; ?></button></span>
-                            </a>
-                        <?php else: ?>
-                            <a href="<?php echo $menuItem['link']; ?>"><?php echo $menuItem['name']; ?></a>
-                        <?php endif; ?>
-                    </li>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </ul>
-
-    </div>
-</nav>
+                    <?php else: ?>
+                        <a href="index.php?page=<?php echo $menuItem['link']; ?>"><?php echo $menuItem['name']; ?></a>
+                    <?php endif; ?>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
 </div>
 
 
 <!--_______________________________________ Carousel__________________________________ -->
 
-
+<?php echo $page_content; ?>
 <div class="allcontain">
 	<div id="carousel-up" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner " role="listbox">

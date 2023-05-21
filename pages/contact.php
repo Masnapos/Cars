@@ -57,41 +57,32 @@ if (session_status() == PHP_SESSION_NONE) {
 			</div>	 
 		</div>
 		<div class="collapse navbar-collapse" id="upmenu">
-			<ul class="nav navbar-nav" id="navbarontop">
-				<li class="active"><a href="index.php">HOME</a> </li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle"	data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CATEGORIES <span class="caret"></span></a>
-					<ul class="dropdown-menu dropdowncostume">
-						<li><a href="#">Sport</a></li>
-						<li><a href="#">Old</a></li>
-						<li><a href="#">New</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">REQUIREMENTS <span class="caret"></span></a>
-						<ul class="dropdown-menu dropdowncostume">
-							<li><a href="canvas.html">Canvas</a></li>
-							<li><a href="geo.html">Geolocation</a></li>
-							<li><a href="svg.html">SVG</a></li>
-							<li><a href="dada.html">Drag and drop API</a></li>
-							<li><a href="cooki.php">Cookies</a></li>
-							<li><a href="mail.php">Sending emails</a></li>
-						
-							<li><a href="ss.html">Session Storage</a></li>
-							<li><a href="ls.html">Local Storage</a></li>
-							<li><a href="ww.html">Web Workers</a></li>
-							<li><a href="sse.html">Server Sent Events</a></li>
-						</ul>
-				</li>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CONTACT </a>
-				</li>
-				<li>
-				<a id="newcar" href="upload.html"><span class="postnewcar">
-					<button>POST NEW CAR</button></span></a></li>
-			</ul>
-		</div>
-	</nav>
+			<<ul class="nav navbar-nav" id="navbarontop">
+        <?php foreach($config['menu'] as $menuItem): ?>
+            <?php if(isset($menuItem['submenu'])): ?>
+                <li class="dropdown">
+                    <a href="index.php?page=<?php echo $menuItem['link']; ?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <?php echo $menuItem['name']; ?> <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu dropdowncostume">
+                        <?php foreach($menuItem['submenu'] as $submenuItem): ?>
+                            <li><a href="index.php?page=<?php echo $submenuItem['link']; ?>"><?php echo $submenuItem['name']; ?></a></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
+            <?php else: ?>
+                <li>
+                    <?php if(isset($menuItem['button']) && $menuItem['button']): ?>
+                        <a id="<?php echo $menuItem['id']; ?>" href="index.php?page=<?php echo $menuItem['link']; ?>">
+                            <span class="postnewcar"><button><?php echo $menuItem['name']; ?></button></span>
+                        </a>
+                    <?php else: ?>
+                        <a href="index.php?page=<?php echo $menuItem['link']; ?>"><?php echo $menuItem['name']; ?></a>
+                    <?php endif; ?>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
 </div>
 <!--_______________________________________ Carousel__________________________________ -->
 <div class="allcontain">

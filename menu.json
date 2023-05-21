@@ -1,0 +1,86 @@
+{
+    "menu": [
+        {
+            "name": "HOME",
+            "link": "#"
+        },
+        {
+            "name": "CATEGORIES",
+            "link": "#",
+            "submenu": [
+                {
+                    "name": "Sport",
+                    "link": "#"
+                },
+                {
+                    "name": "Old",
+                    "link": "#"
+                },
+                {
+                    "name": "New",
+                    "link": "#"
+                }
+            ]
+        },
+        {
+            "name": "REQUIREMENTS",
+            "link": "#",
+            "submenu": [
+                {
+                    "name": "1",
+                    "link": "dealer1.html"
+                },
+                {
+                    "name": "Canvas",
+                    "link": "canvas.html"
+                },
+                {
+                    "name": "Geolocation",
+                    "link": "geo.html"
+                },
+                {
+                    "name": "SVG",
+                    "link": "svg.html"
+                },
+                {
+                    "name": "Drag and drop API",
+                    "link": "dada.html"
+                },
+                {
+                    "name": "Cookies",
+                    "link": "cooki.php"
+                },
+                {
+                    "name": "Sending emails",
+                    "link": "mail.php"
+                },
+                {
+                    "name": "Session Storage",
+                    "link": "ss.html"
+                },
+                {
+                    "name": "Local Storage",
+                    "link": "ls.html"
+                },
+                {
+                    "name": "Web Workers",
+                    "link": "ww.html"
+                },
+                {
+                    "name": "Server Sent Events",
+                    "link": "sse.html"
+                }
+            ]
+        },
+        {
+            "name": "CONTACT",
+            "link": "contact.php"
+        },
+        {
+            "name": "POST NEW CAR",
+            "link": "upload.php",
+            "id": "newcar",
+            "button": true
+        }
+    ]
+}

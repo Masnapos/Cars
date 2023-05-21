@@ -66,7 +66,7 @@ if (isset($_SESSION['error'])) {
     </div>
     <?php unset($_SESSION['register_success']); ?>
 <?php endif; ?>
-</div>
+
  </li>
 			</ul>
 			<ul class="logreg">
@@ -78,14 +78,12 @@ if (isset($_SESSION['error'])) {
     		<li><a href="#" onclick="showRegisterModal()">Register</a></li>
   		<?php endif; ?>
 	</ul>
-		</div>
-
 	<div class="collapse navbar-collapse" id="upmenu">
     <?php
     $string = file_get_contents("menu.json");
     $config = json_decode($string, true);
     ?>
-
+</div>
     <ul class="nav navbar-nav" id="navbarontop">
         <?php foreach($config['menu'] as $menuItem): ?>
             <?php if(isset($menuItem['submenu'])): ?>

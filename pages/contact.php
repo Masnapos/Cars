@@ -44,8 +44,8 @@ if (session_status() == PHP_SESSION_NONE) {
 			</ul>
 	</div>
 	<!-- Navbar Up -->
-	<nav class="topnavbar navbar-default topnav">
-	<?php
+	<div class="collapse navbar-collapse" id="upmenu">
+    <?php
     $string = file_get_contents("menu.json");
     $config = json_decode($string, true);
     ?>

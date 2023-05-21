@@ -115,6 +115,7 @@ if (isset($_SESSION['error'])) {
 
 
 <!--_______________________________________ Carousel__________________________________ -->
+<div>
 <?php echo $page_content; ?>
 <div class="allcontain">
 	<div id="carousel-up" class="carousel slide" data-ride="carousel">
@@ -499,6 +500,7 @@ window.onclick = function (event) {
 
 
   </script>
+  </div>
 <script type="text/javascript" src="source/bootstrap-3.3.6-dist/js/jquery.js"></script>
 <script type="text/javascript" src="source/js/isotope.js"></script>
 <script type="text/javascript" src="source/js/myscript.js"></script> 

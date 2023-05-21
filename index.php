@@ -199,7 +199,7 @@ if (isset($_SESSION['error'])) {
   
 <?php
 		// Establish database connection
-		$conn = mysqli_connect("localhost", "root", "", "cars");
+		$conn = mysqli_connect("localhost", "cars", "usedcarssql1234", "cars");
 $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		// Check if submit button is clicked
 		if (isset($_POST['submit1'])) {

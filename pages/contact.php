@@ -55,7 +55,6 @@ if (session_status() == PHP_SESSION_NONE) {
 				</button>
 				<a class="navbar-brand logo" href="#"><img src="image/logo1.png" alt="logo"></a>
 			</div>	 
-		</div>
     <ul class="nav navbar-nav" id="navbarontop">
         <?php foreach($config['menu'] as $menuItem): ?>
             <?php if(isset($menuItem['submenu'])): ?>

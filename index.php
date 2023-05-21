@@ -3,7 +3,7 @@ session_start();
 
 $allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html']; 
 
-$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : ''; //home.php is the default page
+$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'index.php'; //home.php is the default page
 
 ob_start(); 
 include('pages/'.$page); //all the allowed pages are in a subfolder named "pages"

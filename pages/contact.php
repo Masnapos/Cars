@@ -44,11 +44,13 @@ if (session_status() == PHP_SESSION_NONE) {
 			</ul>
 	</div>
 	<!-- Navbar Up -->
+	<nav class="topnavbar navbar-default topnav">
 	<?php
     $string = file_get_contents("menu.json");
     $config = json_decode($string, true);
     ?>
-	<nav class="topnavbar navbar-default topnav">
+
+<nav class="topnavbar navbar-default topnav">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed toggle-costume" data-toggle="collapse" data-target="#upmenu" aria-expanded="false">
@@ -59,6 +61,7 @@ if (session_status() == PHP_SESSION_NONE) {
 				</button>
 				<a class="navbar-brand logo" href="#"><img src="image/logo1.png" alt="logo"></a>
 			</div>	 
+		</div>
     <ul class="nav navbar-nav" id="navbarontop">
         <?php foreach($config['menu'] as $menuItem): ?>
             <?php if(isset($menuItem['submenu'])): ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html',"dada.html","cooki.php","mail.php","ss.html","ww.html","sse.html"]; 
+$allowed_pages = ['dealer1.html', 'canvas.html',"svg.html", 'geo.html',"dada.html","cooki.php","mail.php","ss.html","ww.html","sse.html"]; 
 
 if (isset($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
     include('pages/'.$_GET['page']); 

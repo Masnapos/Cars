@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-$allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html']; // Add all allowed pages here
+$allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html']; 
 
-$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'index.php';
+$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'index.php'; //home.php is the default page
 
-ob_start(); // Start output buffering
-include($page);
-$page_content = ob_get_clean(); // Get the content of the included file
+ob_start(); 
+include('pages/'.$page); //all the allowed pages are in a subfolder named "pages"
+$page_content = ob_get_clean(); 
 ?>
 
 <!doctype html>
@@ -115,7 +115,6 @@ if (isset($_SESSION['error'])) {
 
 
 <!--_______________________________________ Carousel__________________________________ -->
-
 <?php echo $page_content; ?>
 <div class="allcontain">
 	<div id="carousel-up" class="carousel slide" data-ride="carousel">

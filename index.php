@@ -5,7 +5,7 @@ $allowed_pages = ['dealer1.html', 'canvas.html',"svg.html", 'geo.html',"dada.htm
 
 if (isset($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
     include('pages/'.$_GET['page']); 
-    exit;  // Terminate the script
+    exit;
 } 
 
 ?>
@@ -77,12 +77,13 @@ if (isset($_SESSION['error'])) {
     		<li><a href="#" onclick="showRegisterModal()">Register</a></li>
   		<?php endif; ?>
 	</ul>
+	</div>
 	<div class="collapse navbar-collapse" id="upmenu">
     <?php
     $string = file_get_contents("menu.json");
     $config = json_decode($string, true);
     ?>
-</div>
+
     <ul class="nav navbar-nav" id="navbarontop">
         <?php foreach($config['menu'] as $menuItem): ?>
             <?php if(isset($menuItem['submenu'])): ?>

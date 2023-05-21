@@ -65,7 +65,7 @@ if (isset($_SESSION['error'])) {
     </div>
     <?php unset($_SESSION['register_success']); ?>
 <?php endif; ?>
-</div>
+
  </li>
 			</ul>
 			<ul class="logreg">
@@ -110,7 +110,6 @@ if (isset($_SESSION['error'])) {
         <?php endforeach; ?>
     </ul>
 </div>
-
 
 
 <!--_______________________________________ Carousel__________________________________ -->

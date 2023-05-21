@@ -38,6 +38,7 @@ if (isset($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
 				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 				<li><a href="https://hu.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
+</div>
 			<ul class="givusacall">
 				<li>Give us a call : +36701234567
 				<?php
@@ -77,6 +78,7 @@ if (isset($_SESSION['error'])) {
     		<li><a href="#" onclick="showRegisterModal()">Register</a></li>
   		<?php endif; ?>
 	</ul>
+		</div>
 
 	<div class="collapse navbar-collapse" id="upmenu">
     <?php
@@ -198,7 +200,7 @@ if (isset($_SESSION['error'])) {
   
 <?php
 		// Establish database connection
-		$conn = mysqli_connect("localhost", "cars", "usedcarssql1234", "cars");
+		$conn = mysqli_connect("localhost", "root", "", "cars");
 $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		// Check if submit button is clicked
 		if (isset($_POST['submit1'])) {

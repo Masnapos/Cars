@@ -3,14 +3,13 @@ session_start();
 
 $allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html']; 
 
-$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'default.php'; //default.php is the default page
+if (isset($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
+    include('pages/'.$_GET['page']); 
+    exit;  // Terminate the script
+} 
 
-
-ob_start(); 
-include('pages/'.$page); //all the allowed pages are in a subfolder named "pages"
-$page_content = ob_get_clean(); 
+// If we get to this point, no page was included, so we display the default index.php content
 ?>
-
 <!doctype html>
 <html>
 <head>
@@ -116,9 +115,7 @@ if (isset($_SESSION['error'])) {
 
 
 <!--_______________________________________ Carousel__________________________________ -->
-<div>
-<?php echo $page_content; ?>
-					</div>
+
 <div class="allcontain">
 	<div id="carousel-up" class="carousel slide" data-ride="carousel">
 		<div class="carousel-inner " role="listbox">
@@ -185,6 +182,7 @@ if (isset($_SESSION['error'])) {
 	</div>
 </div>
 <!-- ____________________Featured Section ______________________________--> 
+
 <?php
     try {
 

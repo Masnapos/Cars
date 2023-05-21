@@ -8,7 +8,6 @@ if (isset($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
     exit;  // Terminate the script
 } 
 
-// If we get to this point, no page was included, so we display the default index.php content
 ?>
 <!doctype html>
 <html>

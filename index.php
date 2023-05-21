@@ -3,7 +3,7 @@ session_start();
 
 $allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html']; // Add all allowed pages here
 
-$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'default.html';
+$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'index.php';
 
 ob_start(); // Start output buffering
 include($page);

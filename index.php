@@ -3,15 +3,11 @@ session_start();
 
 $allowed_pages = ['dealer1.html', 'canvas.html', 'geo.html']; 
 
-$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'index.php';
-
-echo "Attempting to include: " . 'pages/' . $page . "<br/>"; // Debug line
+$page = isset($_GET['page']) && in_array($_GET['page'], $allowed_pages) ? $_GET['page'] : 'index.php'; //home.php is the default page
 
 ob_start(); 
-include('pages/'.$page);
+include('pages/'.$page); //all the allowed pages are in a subfolder named "pages"
 $page_content = ob_get_clean(); 
-
-echo $page_content;
 ?>
 
 <!doctype html>

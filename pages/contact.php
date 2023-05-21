@@ -44,6 +44,10 @@ if (session_status() == PHP_SESSION_NONE) {
 			</ul>
 	</div>
 	<!-- Navbar Up -->
+	<?php
+    $string = file_get_contents("menu.json");
+    $config = json_decode($string, true);
+    ?>
 	<nav class="topnavbar navbar-default topnav">
 		<div class="container">
 			<div class="navbar-header">

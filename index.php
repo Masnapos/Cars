@@ -365,7 +365,7 @@ $sql = "SELECT id, brand, model, p_date, price, image FROM cars";
 		<ul class="nav nav-tabs bottomlinks">
 			<li class="ab" role="presentation" ><a href="#" onclick="showRegisterModal()">REGISTER</a></li>
 			
-			<li role="presentation"><a href="upload.php" id="postNewCarLink">POST NEW CAR</a></li>
+			<li role="presentation"><a href="pages/upload.php" id="postNewCarLink">POST NEW CAR</a></li>
 			<li role="presentation"><a href="#" onclick="showLoginModal()">LOGIN</a></li>
 			<li role="presentation"><a href="contact.php">CONTACT US</a></li>
 			
@@ -485,7 +485,7 @@ window.onclick = function (event) {
 }; 
 function checkUserLoggedIn() {
     <?php if (isset($_SESSION['username'])): ?>
-      window.location.href = 'upload.php';
+      window.location.href = 'pages/upload.php';
     <?php else: ?>
       document.getElementById('customAlert').style.display = 'block';
     <?php endif; ?>

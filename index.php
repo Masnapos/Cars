@@ -38,8 +38,6 @@ if (isset($_GET['page']) && in_array($_GET['page'], $allowed_pages)) {
 				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
 				<li><a href="https://hu.pinterest.com/"><i class="fa fa-pinterest"></i></a></li>
 			</ul>
-</div>
-
 			<ul class="givusacall">
 				<li>Give us a call : +36701234567
 				<?php
@@ -67,7 +65,7 @@ if (isset($_SESSION['error'])) {
     </div>
     <?php unset($_SESSION['register_success']); ?>
 <?php endif; ?>
-
+</div>
  </li>
 			</ul>
 			<ul class="logreg">
@@ -111,6 +109,7 @@ if (isset($_SESSION['error'])) {
             <?php endif; ?>
         <?php endforeach; ?>
     </ul>
+</div>
 </div>
 
 
